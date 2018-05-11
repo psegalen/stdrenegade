@@ -1,40 +1,81 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
+import { StyleSheet, Text, View, Image, ScrollView ,Button} from "react-native";
+import { StackNavigator } from "react-navigation"; 
 
 //Component
 import Header from './Header';
-
-// Les programmes de studio Renegade
+import DetailsProgram from './DetailsProgram';
 import programs from "./data/programs.json";
 
-export default class Programs extends Component {
+class Programs extends Component {
+  
+  static navigationOptions = {
+    header: null
+  };
   render() {
     return (
+      <View>
         <View>
-        <Header />
+          <Header/>
+        </View>
+      <View style={{ justifyContent: "center", alignItems: "center" }}>
         <ScrollView>
-        {programs.map(program => (
-          <View key={program.id} style={styles.container}>
-          <View key={program.id} style={styles.emission}>
-              <Image 
-                style={styles.logoEmission}
-                source={{ uri: program.logo }}
-              />
-              <Text style={{textAlign: 'center', alignItems:'center', padding:20,fontWeight: '500'}}>{program.name}</Text>
+          {programs.map(program => (
+            <View key={program.id} style={styles.container}>
+              <View key={program.id} style={styles.emission}>
+                <Image
+                  style={styles.logoEmission}
+                  source={{ uri: program.logo }}
+                />
+                <View style={styles.containerDetail}>
+                  <Text
+                    style={{
+                      textAlign: "center",
+                      alignItems: "center",
+                      padding: 20,
+                      fontWeight: "500"
+                    }}
+                  >
+                    {program.name}
+                  </Text>
+                  <Button
+                    title="Description"
+                    onPress={() =>
+                      this.props.navigation.navigate("Details", {
+                        programDetail: program
+                      })
+                    }
+                  />
+                </View>
+              </View>
             </View>
-          </View>
           ))}
         </ScrollView>
-          </View>
+      </View>
+      </View>
     );
   }
 }
+
+
+const RootStack = StackNavigator({
+  Emission: {
+    screen: Programs
+  },
+  Details:{
+    screen: DetailsProgram
+  },
+},
+{
+  initialRouteName: 'Emission'
+}
+)
 
 const styles = StyleSheet.create({
   container: {
     width: 250,
     height: 80,
-    backgroundColor: "#F2EDE9",
+    backgroundColor: "#DDD",
     borderRadius: 80,
     margin: 20
   },
@@ -48,5 +89,13 @@ const styles = StyleSheet.create({
       borderRadius: 40,
       height: 80,
       width: 80
+    },
+    containerDetail:{
+      flex: 1,
+      flexDirection: "column",
+      justifyContent: "space-around",
+      height: 60
     }
 });
+
+export default RootStack

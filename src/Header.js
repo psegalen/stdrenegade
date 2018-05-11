@@ -6,22 +6,20 @@ import {View, Image, StyleSheet, Text} from 'react-native';
 export default class Header extends Component {
   render() {
     return (
-    
-    <View style={{backgroundColor:'#750000'}}>
-      <View style={styles.header}>
-        <Image source={require('./images/header-back.png')} style={{width: '100%', height:100}} />
-        <Image source={require('./images/logo.png')} style={{width: 90, height: 90, position: 'absolute'}} />
+      <View>
+        <Image source={require('./images/header-back.jpg')} style={{height:125, width:'100%'}} />
+        <Image source={require('./images/logo.png')} style={styles.positionLogo} />
       </View>
-    </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-    header:{
-        backgroundColor: '#FF0000',
-        height: 100,
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
+  positionLogo: {
+    width: 80,
+    height: 80,
+    position: "absolute",
+    top: "25%",
+    left: "40%"
+  }
 });
