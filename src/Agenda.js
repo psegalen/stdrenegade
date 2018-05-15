@@ -4,10 +4,12 @@ import {View, Text, StyleSheet } from 'react-native';
 export default class Agenda extends Component {
 
     currentDate = () => {
-        let date = new Date().getDay();
-        let month = new Date().getMonth() + 1;
-        let years = new Date().getFullYear();
-        return dateCurrent = `${date}-${month}-${years}`
+        const now = new Date();
+        const day = now.getDay();
+        const month = now.getMonth() + 1;
+        const year = now.getFullYear();
+
+        return `${day}-${month}-${year}`;
     }
 
   render() {

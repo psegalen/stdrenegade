@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Image, ScrollView ,Button} from "react-native";
+import { StyleSheet, Text, View, Image, ScrollView, Button} from "react-native";
 import { StackNavigator } from "react-navigation"; 
 
 //Component
@@ -12,46 +12,31 @@ class Programs extends Component {
   static navigationOptions = {
     header: null
   };
+
   render() {
     return (
       <View>
-        <View>
-          <Header/>
-        </View>
-      <View style={{ justifyContent: "center", alignItems: "center" }}>
-        <ScrollView>
-          {programs.map(program => (
-            <View key={program.id} style={styles.container}>
-              <View key={program.id} style={styles.emission}>
-                <Image
-                  style={styles.logoEmission}
-                  source={{ uri: program.logo }}
-                />
-                <View style={styles.containerDetail}>
-                  <Text
-                    style={{
-                      textAlign: "center",
-                      alignItems: "center",
-                      padding: 20,
-                      fontWeight: "500"
-                    }}
-                  >
-                    {program.name}
-                  </Text>
-                  <Button
-                    title="Description"
-                    onPress={() =>
-                      this.props.navigation.navigate("Details", {
-                        programDetail: program
-                      })
+        <Header/>
+        <View style={{ justifyContent: "center", alignItems: "center" }}>
+          <ScrollView>
+            {programs.map(program => (
+              <View key={program.id} style={styles.container}>
+                <View key={program.id} style={styles.emission}>
+                  <Image style={styles.logoEmission} source={{ uri: program.logo }} />
+                  <View style={styles.containerDetail}>
+                    <Text style={styles.programName}>
+                      {program.name}
+                    </Text>
+                    <Button title="Description"
+                      onPress={() => this.props.navigation.navigate("Details", {programDetail: program })
                     }
-                  />
+                    />
+                  </View>
                 </View>
               </View>
-            </View>
-          ))}
-        </ScrollView>
-      </View>
+            ))}
+          </ScrollView>
+        </View>
       </View>
     );
   }
@@ -85,17 +70,23 @@ const styles = StyleSheet.create({
     width: 250,
     height: 80
   },
- logoEmission: {
+  logoEmission: {
       borderRadius: 40,
       height: 80,
       width: 80
-    },
-    containerDetail:{
+  },
+  containerDetail:{
       flex: 1,
       flexDirection: "column",
       justifyContent: "space-around",
       height: 60
-    }
+  },
+  programName:{
+      textAlign: "center",
+      alignItems: "center",
+      padding: 20,
+      fontWeight: "500"
+  }
 });
 
 export default RootStack

@@ -25,7 +25,7 @@ class Accueil extends Component {
           </View> 
           <View>
             <Text>Prochainement</Text>
-            <Agenda/>
+            <Agenda />
           </View>
       </View>
     )
@@ -33,7 +33,7 @@ class Accueil extends Component {
 }
 
 const styles = StyleSheet.create({
-  containerLive:{
+  containerLive: {
     backgroundColor: '#000', 
     height: 60,
     position:'relative'
@@ -43,12 +43,12 @@ const styles = StyleSheet.create({
     color: "#FFF",
     fontFamily: "Montserrat-Light"
   },
-  emissionLive:{
+  emissionLive: {
     fontSize:25,
     color: "#FFF",
     fontFamily: "Montserrat-Medium"
   },
-  twitchLogo:{
+  twitchLogo: {
     position:'absolute',
     left:'70%',
     top:'5%'
@@ -64,16 +64,16 @@ export default TabNavigator({
       tabBarIcon: <Icon name="ios-home" type="ionicon" />
     }
   },
-  Émissions: {
+  Emissions: {
     screen: Programs,
     navigationOptions: {
       tabBarLabel: "Émissions",
       tabBarIcon: <Icon name="tv"  />
     }
   },
-    Support:{
+  Support:{
       screen: Support,
-      navigationOptions:{
+      navigationOptions: {
         tabBarLabel: "Nous Soutenir",
         tabBarIcon: <Icon name="ios-card" type="ionicon" />
       }

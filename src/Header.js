@@ -1,10 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {View, Image, StyleSheet, Text} from 'react-native';
 
-
-
-export default class Header extends Component {
-  render() {
+const Header = () => {
     return (
       <View>
         <Image source={require('./images/header-back.jpg')} style={{height:125, width:'100%'}} />
@@ -12,7 +9,6 @@ export default class Header extends Component {
       </View>
     )
   }
-}
 
 const styles = StyleSheet.create({
   positionLogo: {
@@ -23,3 +19,5 @@ const styles = StyleSheet.create({
     left: "40%"
   }
 });
+
+export default Header
