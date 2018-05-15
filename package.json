@@ -4,10 +4,12 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "react-devtools": "react-devtools",
     "test": "jest"
   },
   "dependencies": {
     "react": "16.3.1",
+    "react-devtools": "^3.2.1",
     "react-native": "0.55.2",
     "react-native-elements": "^0.19.1",
     "react-native-vector-icons": "^4.6.0",
@@ -23,8 +25,6 @@
     "preset": "react-native"
   },
   "rnpm": {
-    "assets": [
-   "./assets/fonts/"
-    ]
+    "assets": ["./assets/fonts/"]
   }
 }

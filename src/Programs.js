@@ -1,92 +1,100 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, Image, ScrollView, Button} from "react-native";
-import { StackNavigator } from "react-navigation"; 
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ScrollView,
+  Button
+} from "react-native";
+import { StackNavigator } from "react-navigation";
 
 //Component
-import Header from './Header';
-import DetailsProgram from './DetailsProgram';
+import Header from "./Header";
+import DetailsProgram from "./DetailsProgram";
 import programs from "./data/programs.json";
 
 class Programs extends Component {
-  
-  static navigationOptions = {
-    header: null
-  };
-
   render() {
     return (
-      <View>
-        <Header/>
-        <View style={{ justifyContent: "center", alignItems: "center" }}>
-          <ScrollView>
+      <View style={{ justifyContent: "center", alignItems: "center" }}>
+        <ScrollView style={{ width: "100%" }}>
+          <View style={{ flex: 1 }}>
             {programs.map(program => (
               <View key={program.id} style={styles.container}>
                 <View key={program.id} style={styles.emission}>
-                  <Image style={styles.logoEmission} source={{ uri: program.logo }} />
+                  <Image
+                    style={styles.logoEmission}
+                    source={{ uri: program.logo }}
+                  />
                   <View style={styles.containerDetail}>
-                    <Text style={styles.programName}>
-                      {program.name}
-                    </Text>
-                    <Button title="Description"
-                      onPress={() => this.props.navigation.navigate("Details", {programDetail: program })
-                    }
+                    <Text style={styles.programName}>{program.name}</Text>
+                    <Button
+                      title="Description"
+                      onPress={() =>
+                        this.props.navigation.navigate("Details", {
+                          programDetail: program
+                        })
+                      }
                     />
                   </View>
                 </View>
               </View>
             ))}
-          </ScrollView>
-        </View>
+          </View>
+        </ScrollView>
       </View>
     );
   }
 }
 
-
-const RootStack = StackNavigator({
-  Emission: {
-    screen: Programs
+const RootStack = StackNavigator(
+  {
+    Emission: {
+      screen: Programs
+    },
+    Details: {
+      screen: DetailsProgram
+    }
   },
-  Details:{
-    screen: DetailsProgram
-  },
-},
-{
-  initialRouteName: 'Emission'
-}
-)
+  {
+    initialRouteName: "Emission",
+    navigationOptions: {
+      header: Header
+    }
+  }
+);
 
 const styles = StyleSheet.create({
   container: {
-    width: 250,
-    height: 80,
     backgroundColor: "#DDD",
     borderRadius: 80,
-    margin: 20
+    marginHorizontal: 20,
+    marginVertical: 10
   },
   emission: {
     flex: 1,
     flexDirection: "row",
-    width: 250,
     height: 80
   },
   logoEmission: {
-      borderRadius: 40,
-      height: 80,
-      width: 80
+    borderRadius: 40,
+    height: 80,
+    width: 80
   },
-  containerDetail:{
-      flex: 1,
-      flexDirection: "column",
-      justifyContent: "space-around",
-      height: 60
+  containerDetail: {
+    flexDirection: "column",
+    justifyContent: "space-around",
+    flex: 1,
+    height: 60
   },
-  programName:{
-      textAlign: "center",
-      alignItems: "center",
-      padding: 20,
-      fontWeight: "500"
+  programName: {
+    flex: 1,
+    textAlign: "center",
+    alignItems: "center",
+    padding: 20,
+    fontWeight: "500"
   }
 });
 
-export default RootStack
+export default RootStack;
