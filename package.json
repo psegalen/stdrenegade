@@ -13,7 +13,7 @@
     "react-native": "0.55.2",
     "react-native-elements": "^0.19.1",
     "react-native-vector-icons": "^4.6.0",
-    "react-navigation": "^1.5.11"
+    "react-navigation": "^2.0.4"
   },
   "devDependencies": {
     "babel-jest": "22.4.3",
@@ -25,6 +25,8 @@
     "preset": "react-native"
   },
   "rnpm": {
-    "assets": ["./assets/fonts/"]
+    "assets": [
+      "./assets/fonts/"
+    ]
   }
 }

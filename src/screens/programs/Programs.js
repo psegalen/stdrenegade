@@ -10,11 +10,10 @@ import {
 import { StackNavigator } from "react-navigation";
 
 //Component
-import Header from "./Header";
-import DetailsProgram from "./DetailsProgram";
-import programs from "./data/programs.json";
+import Header from "../../components/Header";
+import programs from "../../res/data/programs.json";
 
-class Programs extends Component {
+export default class Programs extends Component {
   render() {
     return (
       <View style={{ justifyContent: "center", alignItems: "center" }}>
@@ -48,23 +47,6 @@ class Programs extends Component {
   }
 }
 
-const RootStack = StackNavigator(
-  {
-    Emission: {
-      screen: Programs
-    },
-    Details: {
-      screen: DetailsProgram
-    }
-  },
-  {
-    initialRouteName: "Emission",
-    navigationOptions: {
-      header: Header
-    }
-  }
-);
-
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "#DDD",
@@ -96,5 +78,3 @@ const styles = StyleSheet.create({
     fontWeight: "500"
   }
 });
-
-export default RootStack;
