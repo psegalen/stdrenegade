@@ -18,16 +18,27 @@ import Agenda from "./Agenda";
 import Support from "./Support";
 
 class Accueil extends Component {
+  openTwitch() {
+    const twitchWeb = "https://twitch.tv/studiorenegade";
+    const twitchApp = "twitch://stream/studiorenegade";
+    Linking.canOpenURL(twitchApp).then(canOpen => {
+      if (canOpen) {
+        Linking.openURL(twitchApp);
+      } else {
+        Linking.openURL(twitchWeb);
+      }
+    });
+  }
   render() {
     return (
       <View>
         <Header />
         <View style={styles.containerLive}>
           <Text style={styles.live}>Actuellement en live !</Text>
-          <Text style={styles.emissionLive}>Hello World</Text>
+          <Text style={styles.emissionLive}>NELIGER!!!!!</Text>
           <TouchableHighlight
             style={styles.twitchLogo}
-            onPress={() => Linking.openURL("https://twitch.tv/studiorenegade")}
+            onPress={this.openTwitch}
           >
             <Image
               source={require("./images/twitch.png")}
