@@ -12,6 +12,7 @@ import { StackNavigator } from "react-navigation";
 //Component
 import Header from "../../components/Header";
 import programs from "../../res/data/programs.json";
+import { Routes } from ".";
 
 export default class Programs extends Component {
   render() {
@@ -31,7 +32,7 @@ export default class Programs extends Component {
                     <Button
                       title="Description"
                       onPress={() =>
-                        this.props.navigation.navigate("Details", {
+                        this.props.navigation.navigate(Routes.programsDetails, {
                           programDetail: program
                         })
                       }
