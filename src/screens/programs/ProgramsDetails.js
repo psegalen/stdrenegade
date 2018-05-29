@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Image} from "react-native";
- 
 
-export default class DetailsProgram extends Component {
+
+export default class ProgramsDetails extends Component {
     static navigationOptions = {
     title: "Détail Émission"
   };
@@ -11,7 +11,7 @@ export default class DetailsProgram extends Component {
       const { params } = this.props.navigation.state;
       const programDescription = params.programDetail.description;
       const logoEmission = params.programDetail.logo;
-   
+
     return (
       <View>
         <View style={{ justifyContent: "center", alignItems: "center" }}>
