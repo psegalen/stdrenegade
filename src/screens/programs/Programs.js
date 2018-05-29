@@ -10,11 +10,11 @@ import {
 import { StackNavigator } from "react-navigation";
 
 //Component
-import Header from "./Header";
-import DetailsProgram from "./DetailsProgram";
-import programs from "./data/programs.json";
+import Header from "../../components/Header";
+import programs from "../../res/data/programs.json";
+import { Routes } from ".";
 
-class Programs extends Component {
+export default class Programs extends Component {
   render() {
     return (
       <View style={{ justifyContent: "center", alignItems: "center" }}>
@@ -32,7 +32,7 @@ class Programs extends Component {
                     <Button
                       title="Description"
                       onPress={() =>
-                        this.props.navigation.navigate("Details", {
+                        this.props.navigation.navigate(Routes.programsDetails, {
                           programDetail: program
                         })
                       }
@@ -47,23 +47,6 @@ class Programs extends Component {
     );
   }
 }
-
-const RootStack = StackNavigator(
-  {
-    Emission: {
-      screen: Programs
-    },
-    Details: {
-      screen: DetailsProgram
-    }
-  },
-  {
-    initialRouteName: "Emission",
-    navigationOptions: {
-      header: Header
-    }
-  }
-);
 
 const styles = StyleSheet.create({
   container: {
@@ -96,5 +79,3 @@ const styles = StyleSheet.create({
     fontWeight: "500"
   }
 });
-
-export default RootStack;
