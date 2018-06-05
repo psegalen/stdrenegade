@@ -1,11 +1,24 @@
 import React, { Component } from "react"
-import { View, Text, StyleSheet, Image, Linking, TouchableOpacity, ScrollView, Animated } from "react-native"
+import {
+    View,
+    Text,
+    StyleSheet,
+    Image,
+    Linking,
+    TouchableOpacity,
+    ScrollView,
+    Animated,
+    SafeAreaView,
+    Alert,
+} from "react-native"
+import DeviceInfo from "react-native-device-info"
 
 // Component
 import Header from "../../components/Header"
+import Device from "../../tools/Device"
 
 const HEADER_MAX_HEIGHT = 125
-const HEADER_MIN_HEIGHT = 50
+const HEADER_MIN_HEIGHT = Device.getStatusBarHeight()
 const HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT
 
 export default class SupportUs extends Component {
@@ -23,7 +36,7 @@ export default class SupportUs extends Component {
             extrapolate: "clamp",
         })
         return (
-            <View style={{ flex: 1 }}>
+            <SafeAreaView style={{ flex: 1 }}>
                 <ScrollView
                     style={{ flex: 1 }}
                     contentContainerStyle={styles.scrollViewContent}
@@ -97,11 +110,12 @@ export default class SupportUs extends Component {
                             </TouchableOpacity>
                         </View>
                     </View>
+                    <View style={{ height: 100 }} />
                 </ScrollView>
                 <Animated.View style={[styles.header, { height: headerHeight }]}>
                     <Header />
                 </Animated.View>
-            </View>
+            </SafeAreaView>
         )
     }
 }
