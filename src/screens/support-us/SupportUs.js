@@ -1,36 +1,32 @@
 import React, { Component } from "react"
-import { View, Text, StyleSheet, Image, Linking, TouchableOpacity, ScrollView, Animated } from "react-native"
+import {
+    SafeAreaView,
+    View,
+    Text,
+    StyleSheet,
+    Image,
+    Linking,
+    TouchableOpacity,
+    ScrollView,
+    Animated,
+} from "react-native"
 
 // Component
 import Header from "../../components/Header"
 
-const HEADER_MAX_HEIGHT = 125
-const HEADER_MIN_HEIGHT = 50
-const HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT
-
 export default class SupportUs extends Component {
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            scrollY: new Animated.Value(0),
-        }
+    state = {
+        scrollY: new Animated.Value(0),
     }
+
+    _onScroll = Animated.event([{ nativeEvent: { contentOffset: { y: this.state.scrollY } } }])
+
     render() {
-        const headerHeight = this.state.scrollY.interpolate({
-            inputRange: [0, HEADER_SCROLL_DISTANCE],
-            outputRange: [HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT],
-            extrapolate: "clamp",
-        })
+        const headerHeight = Header.animatedHeight({ deltaY: this.state.scrollY })
         return (
-            <View style={{ flex: 1 }}>
-                <ScrollView
-                    style={{ flex: 1 }}
-                    contentContainerStyle={styles.scrollViewContent}
-                    scrollEventThrottle={16}
-                    onScroll={Animated.event([{ nativeEvent: { contentOffset: { y: this.state.scrollY } } }])}
-                >
-                    <View style={{ flex: 1 }}>
+            <SafeAreaView style={{ flex: 1 }}>
+                <ScrollView style={{ flex: 1 }} scrollEventThrottle={16} onScroll={this._onScroll}>
+                    <Animated.View style={{ flex: 1, paddingTop: headerHeight }}>
                         <View style={{ justifyContent: "center", alignItems: "center" }}>
                             <Text style={{ fontFamily: "Montserrat-Medium", marginTop: 10, fontSize: 25 }}>
                                 MERCI À VOUS !
@@ -96,12 +92,10 @@ export default class SupportUs extends Component {
                                 />
                             </TouchableOpacity>
                         </View>
-                    </View>
+                    </Animated.View>
                 </ScrollView>
-                <Animated.View style={[styles.header, { height: headerHeight }]}>
-                    <Header />
-                </Animated.View>
-            </View>
+                <Header style={styles.header} height={headerHeight} />
+            </SafeAreaView>
         )
     }
 }
@@ -119,8 +113,6 @@ const styles = StyleSheet.create({
         top: 0,
         left: 0,
         right: 0,
-        backgroundColor: "#4A0B0F",
-        overflow: "hidden",
     },
     bar: {
         marginTop: 28,
@@ -132,9 +124,5 @@ const styles = StyleSheet.create({
         backgroundColor: "transparent",
         color: "white",
         fontSize: 18,
-    },
-    scrollViewContent: {
-        marginTop: HEADER_MAX_HEIGHT,
-        paddingBottom: HEADER_MAX_HEIGHT,
     },
 })
