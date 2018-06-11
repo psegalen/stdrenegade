@@ -1,5 +1,17 @@
 import React from "react"
-import { SafeAreaView, ImageBackground, Animated, Dimensions, StyleSheet } from "react-native"
+import {
+    SafeAreaView,
+    ImageBackground,
+    Animated,
+    Dimensions,
+    StyleSheet,
+    ViewPropTypes,
+    TouchableOpacity,
+    Text,
+} from "react-native"
+import PropTypes from "prop-types"
+
+const windowSize = Dimensions.get("window")
 
 const Header = (props) => (
     <ImageBackground
@@ -7,26 +19,31 @@ const Header = (props) => (
         style={[props.styles, styles.container]}
         resizeMode="cover"
     >
-        <SafeAreaView>
+        <SafeAreaView style={{ flex: 1 }}>
             <Animated.Image
                 source={require("../res/images/logo.png")}
-                style={{ height: props.height || Header.maxHeight }}
+                style={{ height: props.height }}
                 resizeMode="contain"
             />
         </SafeAreaView>
     </ImageBackground>
 )
-
-const windowSize = Dimensions.get("window")
-
 Header.minHeight = 0
 Header.maxHeight = 80
-Header.animatedHeight = ({ deltaY }) =>
-    deltaY.interpolate({
+Header.animatedHeight = ({ scrollContentYOffset }) =>
+    scrollContentYOffset.interpolate({
         inputRange: [-windowSize.height, 0, Header.maxHeight - Header.minHeight],
         outputRange: [Header.maxHeight + windowSize.height * 0.3, Header.maxHeight, Header.minHeight],
         useNativeDriver: true,
     })
+
+Header.propTypes = {
+    style: ViewPropTypes.style,
+    height: PropTypes.object,
+}
+Header.defaultProps = {
+    height: Header.maxHeight,
+}
 
 const styles = StyleSheet.create({
     container: {

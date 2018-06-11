@@ -17,8 +17,18 @@ export default createStackNavigator(
         [Routes.programsDetails]: ProgramsDetails,
     },
     {
-        navigationOptions: {
-            header: <Header />
-        }
+        navigationOptions: ({ navigation }) => {
+            const { params = {} } = navigation.state
+            const { headerHeight } = params
+            return {
+                header: (
+                    <Header
+                        navigation={navigation}
+                        hasBackButton={navigation.state.routeName !== Routes.programsHome}
+                        height={headerHeight}
+                    />
+                ),
+            }
+        },
     }
 )
