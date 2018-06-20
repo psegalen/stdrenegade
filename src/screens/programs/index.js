@@ -19,15 +19,9 @@ export default createStackNavigator(
     {
         navigationOptions: ({ navigation }) => {
             const { params = {} } = navigation.state
-            const { headerHeight } = params
+            const { scrollContentYOffset } = params
             return {
-                header: (
-                    <Header
-                        navigation={navigation}
-                        hasBackButton={navigation.state.routeName !== Routes.programsHome}
-                        height={headerHeight}
-                    />
-                ),
+                header: <Header navigation={navigation} scrollContentYOffset={scrollContentYOffset} />,
             }
         },
     }

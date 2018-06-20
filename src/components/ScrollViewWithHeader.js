@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { SafeAreaView, StyleSheet, ViewPropTypes, ScrollView, Animated } from "react-native"
+import { SafeAreaView, StyleSheet, ViewPropTypes, ScrollView, View } from "react-native"
 import PropTypes from "prop-types"
 
 import Header from "./Header"
@@ -11,26 +11,22 @@ export default class ScrollViewWithHeader extends Component {
         navigation: PropTypes.object, // Provide navigation object if header is in navigation stack
     }
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            offsetY: new Animated.Value(0),
-        }
-        this._headerHeight = Header.animatedHeight({ scrollContentYOffset: this.state.offsetY })
-        props.navigation && props.navigation.setParams({ headerHeight: this._headerHeight })
+    state = {
+        offsetY: 0,
     }
 
-    _onScroll = ({ nativeEvent }) => this.state.offsetY.setValue(nativeEvent.contentOffset.y)
+    onScroll = ({ nativeEvent }) =>
+        this.props.navigation
+            ? this.props.navigation.setParams({ scrollContentYOffset: nativeEvent.contentOffset.y })
+            : this.setState({ offsetY: nativeEvent.contentOffset.y })
 
     render() {
         return (
             <SafeAreaView style={this.props.style}>
-                <ScrollView style={{ flex: 1 }} scrollEventThrottle={16} onScroll={this._onScroll}>
-                    <Animated.View style={{ flex: 1, paddingTop: this._headerHeight }}>
-                        {this.props.children}
-                    </Animated.View>
+                <ScrollView style={{ flex: 1 }} scrollEventThrottle={16} onScroll={this.onScroll}>
+                    <View style={{ flex: 1, marginTop: Header.maxHeight }}>{this.props.children}</View>
                 </ScrollView>
-                {!this.props.navigation && <Header style={styles.header} height={this._headerHeight} />}
+                {!this.props.navigation && <Header style={styles.header} scrollContentYOffset={this.state.offsetY} />}
             </SafeAreaView>
         )
     }
