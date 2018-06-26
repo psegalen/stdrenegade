@@ -127,6 +127,7 @@ const styles = StyleSheet.create({
         fontFamily: "Montserrat-Light",
         fontSize: 20,
         textAlign: "center",
+        paddingTop: 10,
     },
     touchLive: {
         height: 60,
