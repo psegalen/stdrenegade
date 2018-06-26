@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import { StyleSheet, Text, View, Image, Linking, TouchableHighlight } from "react-native"
-
 import Agenda from "../../components/Agenda"
 import ScrollViewWithHeader from "../../components/ScrollViewWithHeader"
 
@@ -26,11 +25,11 @@ export default class Home extends Component {
                         <Image source={require("../../res/images/twitch.png")} style={{ height: 55, width: 55 }} />
                     </TouchableHighlight>
                 </View>
-                <View>
+                <View style={{ flex: 1 }}>
                     <Text>Prochainement</Text>
                     <Agenda />
                 </View>
-            </ScrollViewWithHeader>
+            </View>
         )
     }
 }
