@@ -1,12 +1,7 @@
 import React, { Component } from "react"
 import { StyleSheet, Text, View, Image, Linking, TouchableHighlight } from "react-native"
-// React-Native-Elements
-
-// React-Navigation
-import { TabNavigator } from "react-navigation"
-// Component
-import Header from "../../components/Header"
 import Agenda from "../../components/Agenda"
+import ScrollViewWithHeader from "../../components/ScrollViewWithHeader"
 
 export default class Home extends Component {
     openTwitch() {
@@ -22,8 +17,7 @@ export default class Home extends Component {
     }
     render() {
         return (
-            <View style={{ flex: 1 }}>
-                <Header />
+            <ScrollViewWithHeader style={{ flex: 1 }}>
                 <View style={styles.containerLive}>
                     <Text style={styles.live}>Actuellement en live !</Text>
                     <Text style={styles.emissionLive}>NELIGER!!!!!</Text>
@@ -35,7 +29,7 @@ export default class Home extends Component {
                     <Text>Prochainement</Text>
                     <Agenda />
                 </View>
-            </View>
+            </ScrollViewWithHeader>
         )
     }
 }

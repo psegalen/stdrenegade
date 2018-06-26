@@ -17,8 +17,12 @@ export default createStackNavigator(
         [Routes.programsDetails]: ProgramsDetails,
     },
     {
-        navigationOptions: {
-            header: <Header />
-        }
+        navigationOptions: ({ navigation }) => {
+            const { params = {} } = navigation.state
+            const { scrollContentYOffset } = params
+            return {
+                header: <Header navigation={navigation} scrollContentYOffset={scrollContentYOffset} />,
+            }
+        },
     }
 )
