@@ -29,7 +29,7 @@ export default class Home extends Component {
                     <Text>Prochainement</Text>
                     <Agenda />
                 </View>
-            </View>
+            </ScrollViewWithHeader>
         )
     }
 }
