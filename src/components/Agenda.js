@@ -1,23 +1,27 @@
 import React, { Component } from "react"
 import { View, Text, StyleSheet, Linking, Image, TouchableHighlight } from "react-native"
+import { connect } from "react-redux"
 import { remainingTime } from "../tools/Date"
+import { storeRenegadeData, fetchRenegadeData } from "../data/renegade/actions"
 
-export default class Agenda extends Component {
+class Agenda extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            events: [],
-            programs: [],
-            streamers: [],
+            currentLiveEvent: null,
         }
     }
 
     componentDidMount() {
+        this.props.fetchRenegadeData()
         fetch({ method: "GET", url: "https://studiorenegade.fr/app_data.json.php" })
             .then((data) => data.json())
-            .then((result) =>
-                this.setState({ events: result.events, programs: result.programs, streamers: result.streamers })
-            )
+            .then((result) => this.props.storeRenegadeData(result))
+        this.liveEventInterval = setInterval(() => this.setState({ currentLiveEvent: this.getLiveEvent() }), 1000)
+    }
+
+    componentWillUnmount() {
+        if (this.liveEventInterval) clearInterval(this.liveEventInterval)
     }
 
     currentDate() {
@@ -43,15 +47,15 @@ export default class Agenda extends Component {
 
     getLiveEvent() {
         const now = new Date().getTime()
-        return this.state.events.find((event) => event.time_start * 1000 < now && event.time_end * 1000 > now)
+        return this.props.renegade.events.find((event) => event.time_start * 1000 < now && event.time_end * 1000 > now)
     }
 
     getProgramFromEvent(event) {
-        return this.state.programs.find((program) => program.id === event.program)
+        return this.props.renegade.programs.find((program) => program.id === event.program)
     }
 
     getStreamerFromEvent(event) {
-        return this.state.streamers.find(
+        return this.props.renegade.streamers.find(
             (streamer) => streamer.id === (event.streamers ? event.streamers[0] : undefined)
         )
     }
@@ -82,9 +86,9 @@ export default class Agenda extends Component {
     }
 
     render() {
-        const liveEvent = this.getLiveEvent()
-        const program = this.getProgramFromEvent(liveEvent)
-        const streamer = this.getStreamerFromEvent(liveEvent)
+        const liveEvent = this.state.currentLiveEvent
+        const program = liveEvent ? this.getProgramFromEvent(liveEvent) : null
+        const streamer = liveEvent ? this.getStreamerFromEvent(liveEvent) : null
         const logo = program
             ? program.logo
             : streamer
@@ -111,7 +115,7 @@ export default class Agenda extends Component {
                     </TouchableHighlight>
                 )}
                 <Text style={styles.title}>Agenda</Text>
-                {this.state.events.map(
+                {this.props.renegade.events.map(
                     (event) => (new Date().getTime() < event.time_start * 1000 ? this.renderProgram(event) : undefined)
                 )}
             </View>
@@ -127,7 +131,8 @@ const styles = StyleSheet.create({
         fontFamily: "Montserrat-Light",
         fontSize: 20,
         textAlign: "center",
-        paddingTop: 10,
+        fontWeight: "bold",
+        paddingVertical: 10,
     },
     touchLive: {
         height: 60,
@@ -187,3 +192,21 @@ const styles = StyleSheet.create({
         color: "#000",
     },
 })
+
+const mapStateToProps = ({ renegade }) => ({
+    renegade,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    storeRenegadeData: (data) => {
+        dispatch(storeRenegadeData(data))
+    },
+    fetchRenegadeData: () => {
+        dispatch(fetchRenegadeData())
+    },
+})
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Agenda)
