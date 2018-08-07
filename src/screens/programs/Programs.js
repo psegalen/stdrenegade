@@ -1,33 +1,34 @@
 import React, { Component } from "react"
-import { StyleSheet, Text, View, Image, ScrollView, Button } from "react-native"
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native"
+import { connect } from "react-redux"
 
-//Component
-import programs from "../../res/data/programs.json"
 import { Routes } from "."
 
 import ScrollViewWithHeader from "../../components/ScrollViewWithHeader"
 
-export default class Programs extends Component {
+class Programs extends Component {
     render() {
         return (
             <ScrollViewWithHeader style={{ flex: 1 }} navigation={this.props.navigation}>
                 <View style={{ flex: 1 }}>
-                    {programs.map((program) => (
+                    {this.props.renegade.programs.map((program) => (
                         <View key={program.id} style={styles.container}>
-                            <View key={program.id} style={styles.emission}>
+                            <TouchableOpacity
+                                style={styles.emission}
+                                onPress={() =>
+                                    this.props.navigation.navigate(Routes.programsDetails, {
+                                        programDetail: program,
+                                    })
+                                }
+                            >
                                 <Image style={styles.logoEmission} source={{ uri: program.logo }} />
                                 <View style={styles.containerDetail}>
                                     <Text style={styles.programName}>{program.name}</Text>
-                                    <Button
-                                        title="Description"
-                                        onPress={() =>
-                                            this.props.navigation.navigate(Routes.programsDetails, {
-                                                programDetail: program,
-                                            })
-                                        }
-                                    />
+                                    {program.nextLive.length && (
+                                        <Text style={styles.programTime}>{program.nextLive}</Text>
+                                    )}
                                 </View>
-                            </View>
+                            </TouchableOpacity>
                         </View>
                     ))}
                 </View>
@@ -55,15 +56,25 @@ const styles = StyleSheet.create({
     },
     containerDetail: {
         flexDirection: "column",
-        justifyContent: "space-around",
+        justifyContent: "center",
         flex: 1,
-        height: 60,
+        paddingLeft: 10,
     },
     programName: {
-        flex: 1,
-        textAlign: "center",
-        alignItems: "center",
-        padding: 20,
-        fontWeight: "500",
+        fontFamily: "Montserrat-Light",
+        color: "#000",
+        fontSize: 18,
+        fontWeight: "bold",
+    },
+    programTime: {
+        fontFamily: "Montserrat-Light",
+        color: "#000",
+        paddingTop: 4,
     },
 })
+
+const mapStateToProps = ({ renegade }) => ({
+    renegade,
+})
+
+export default connect(mapStateToProps)(Programs)
