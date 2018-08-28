@@ -197,16 +197,7 @@ const mapStateToProps = ({ renegade }) => ({
     renegade,
 })
 
-const mapDispatchToProps = (dispatch) => ({
-    storeRenegadeData: (data) => {
-        dispatch(storeRenegadeData(data))
-    },
-    fetchRenegadeData: () => {
-        dispatch(fetchRenegadeData())
-    },
-})
-
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    { storeRenegadeData, fetchRenegadeData }
 )(Agenda)
