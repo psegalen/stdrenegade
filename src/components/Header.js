@@ -1,6 +1,17 @@
 import React from "react"
-import { SafeAreaView, ImageBackground, Animated, Easing, Dimensions, StyleSheet, ViewPropTypes } from "react-native"
+import {
+    SafeAreaView,
+    ImageBackground,
+    Animated,
+    Easing,
+    Dimensions,
+    StyleSheet,
+    ViewPropTypes,
+    TouchableOpacity,
+} from "react-native"
 import PropTypes from "prop-types"
+import IconMCI from "react-native-vector-icons/MaterialCommunityIcons"
+import { Routes } from "../screens/programs"
 
 const windowSize = Dimensions.get("window")
 
@@ -67,6 +78,17 @@ class Header extends React.Component {
                         resizeMode="contain"
                     />
                 </SafeAreaView>
+                {this.props.navigation &&
+                    this.props.navigation.state &&
+                    this.props.navigation.state.routeName &&
+                    this.props.navigation.state.routeName === Routes.programsDetails && (
+                        <TouchableOpacity
+                            onPress={() => (this.props.navigation ? this.props.navigation.goBack() : undefined)}
+                            style={{ padding: 10, position: "absolute", top: 30, left: 20 }}
+                        >
+                            <IconMCI name="arrow-left" size={36} color="#FFF" />
+                        </TouchableOpacity>
+                    )}
             </ImageBackground>
         )
     }
