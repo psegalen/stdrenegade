@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { StyleSheet, Text, View, Image } from "react-native"
 
 import ScrollViewWithHeader from "../../components/ScrollViewWithHeader"
+import { remainingTime } from "../../tools/Date"
 
 export default class ProgramsDetails extends Component {
     static navigationOptions = {
@@ -14,19 +15,26 @@ export default class ProgramsDetails extends Component {
         const logoEmission = params.programDetail.logo
         return (
             <ScrollViewWithHeader style={{ flex: 1 }} navigation={this.props.navigation}>
-                <View style={{ justifyContent: "center", alignItems: "center" }}>
-                    <Image source={{ uri: logoEmission }} style={styles.logo} />
+                <View style={styles.container}>
+                    <View style={{ justifyContent: "center", alignItems: "center", marginBottom: 10 }}>
+                        <Image source={{ uri: logoEmission }} style={styles.logo} />
+                    </View>
+                    <Text style={styles.title}>{params.programDetail.name}</Text>
+                    <Text style={styles.textContainer}>{programDescription}</Text>
+                    <Text style={styles.title}>Streameurs</Text>
+                    <View style={{ flexDirection: "row", justifyContent: "space-around", margin: 10 }}>
+                        {params.programDetail.anim.map((streamer) => (
+                            <View key={streamer.id}>
+                                <Image source={{ uri: streamer.logo }} style={styles.streamerLogo} />
+                            </View>
+                        ))}
+                    </View>
+                    {params.programDetail.nextLive ? (
+                        <Text style={styles.textContainer}>Prochain live : {params.programDetail.nextLive}</Text>
+                    ) : (
+                        undefined
+                    )}
                 </View>
-                <Text style={styles.textContainer}>{programDescription}</Text>
-                <Text style={{ fontWeight: "900" }}>Streameurs</Text>
-                <View style={{ flexDirection: "row", justifyContent: "space-around", margin: 10 }}>
-                    <Image
-                        style={{ height: 150, width: 150, borderRadius: 75 }}
-                        source={{ uri: "https://picsum.photos/200/?random" }}
-                    />
-                </View>
-                <Text>Prochain stream : ???</Text>
-                <Text>Dernière émission : ??? </Text>
             </ScrollViewWithHeader>
         )
     }
@@ -39,9 +47,26 @@ const styles = StyleSheet.create({
         height: 80,
         width: 80,
     },
-    textContainer: {
+    streamerLogo: {
+        borderRadius: 20,
+        height: 40,
+        width: 40,
+    },
+    container: {
         padding: 10,
+    },
+    title: {
+        fontFamily: "Montserrat-Light",
+        color: "#000",
+        fontSize: 20,
+        fontWeight: "bold",
+        textAlign: "center",
+        marginTop: 10,
+    },
+    textContainer: {
         textAlign: "justify",
+        fontSize: 16,
+        marginTop: 10,
     },
     streameur: {
         height: 70,
