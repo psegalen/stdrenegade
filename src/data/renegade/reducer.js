@@ -16,9 +16,14 @@ const renegadeReducer = (state = initialState, action) => {
                 .filter((value) => new Date().getTime() < value.time_start * 1000)
             const programs = action.data.programs.map((program) => {
                 const nextLive = filteredEvents.find((event) => event.program === program.id)
+                const anim = []
+                program.streamers.map((streamerId) =>
+                    anim.push(action.data.streamers.find((streamer) => streamer.id === streamerId))
+                )
                 return {
                     ...program,
                     nextLive: nextLive ? remainingTime(nextLive.time_start * 1000) : "",
+                    anim,
                 }
             })
             return {
