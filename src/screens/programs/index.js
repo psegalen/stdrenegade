@@ -21,7 +21,13 @@ export default createStackNavigator(
             const { params = {} } = navigation.state
             const { scrollContentYOffset } = params
             return {
-                header: <Header navigation={navigation} scrollContentYOffset={scrollContentYOffset} />,
+                header: ({ index }) => (
+                    <Header
+                        navigation={navigation}
+                        scrollContentYOffset={scrollContentYOffset}
+                        shouldShowBackButton={index !== 0}
+                    />
+                ),
             }
         },
     }
