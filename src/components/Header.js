@@ -19,9 +19,11 @@ class Header extends React.Component {
     static propTypes = {
         style: ViewPropTypes.style,
         scrollContentYOffset: PropTypes.number,
+        shouldShowBackButton: PropTypes.bool,
     }
     static defaultProps = {
         scrollContentYOffset: 0,
+        shouldShowBackButton: false,
     }
     // Header animation configuration
     static minHeight = 0
@@ -78,17 +80,14 @@ class Header extends React.Component {
                         resizeMode="contain"
                     />
                 </SafeAreaView>
-                {this.props.navigation &&
-                    this.props.navigation.state &&
-                    this.props.navigation.state.routeName &&
-                    this.props.navigation.state.routeName === Routes.programsDetails && (
-                        <TouchableOpacity
-                            onPress={() => (this.props.navigation ? this.props.navigation.goBack() : undefined)}
-                            style={{ padding: 10, position: "absolute", top: 30, left: 20 }}
-                        >
-                            <IconMCI name="arrow-left" size={36} color="#FFF" />
-                        </TouchableOpacity>
-                    )}
+                {this.props.shouldShowBackButton && (
+                    <TouchableOpacity
+                        onPress={() => (this.props.navigation ? this.props.navigation.goBack() : undefined)}
+                        style={{ padding: 10, position: "absolute", top: 30, left: 20 }}
+                    >
+                        <IconMCI name="arrow-left" size={36} color="#FFF" />
+                    </TouchableOpacity>
+                )}
             </ImageBackground>
         )
     }
