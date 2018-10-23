@@ -10,9 +10,9 @@
         "precommit": "pretty-quick --staged"
     },
     "dependencies": {
-        "react": "16.3.1",
-        "react-devtools": "^3.2.1",
-        "react-native": "0.55.2",
+        "react": "16.5.0",
+        "react-devtools": "^3.2.3",
+        "react-native": "0.57.1",
         "react-native-device-info": "^0.21.5",
         "react-native-vector-icons": "^4.6.0",
         "react-navigation": "^2.0.4",
@@ -20,10 +20,11 @@
         "redux": "^4.0.0"
     },
     "devDependencies": {
-        "babel-jest": "22.4.3",
-        "babel-preset-react-native": "4.0.0",
+        "babel-core": "7.0.0-bridge.0",
+        "babel-jest": "23.6.0",
         "husky": "^0.14.3",
-        "jest": "22.4.3",
+        "jest": "23.6.0",
+        "metro-react-native-babel-preset": "^0.45.0",
         "prettier": "1.13.2",
         "pretty-quick": "^1.6.0",
         "react-test-renderer": "16.3.1"
