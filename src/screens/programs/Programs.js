@@ -24,7 +24,7 @@ class Programs extends Component {
                                 <Image style={styles.logoEmission} source={{ uri: program.logo }} />
                                 <View style={styles.containerDetail}>
                                     <Text style={styles.programName}>{program.name}</Text>
-                                    {program.nextLive.length && (
+                                    {program.nextLive.length > 0 && (
                                         <Text style={styles.programTime}>{program.nextLive}</Text>
                                     )}
                                 </View>

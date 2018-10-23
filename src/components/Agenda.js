@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { View, Text, StyleSheet, Linking, Image, TouchableHighlight } from "react-native"
+import { View, Text, StyleSheet, Linking, Image, TouchableHighlight, Alert } from "react-native"
 import { connect } from "react-redux"
 import { remainingTime } from "../tools/Date"
 import { storeRenegadeData, fetchRenegadeData } from "../data/renegade/actions"
@@ -14,9 +14,10 @@ class Agenda extends Component {
 
     componentDidMount() {
         this.props.fetchRenegadeData()
-        fetch({ method: "GET", url: "https://studiorenegade.fr/app_data.json.php" })
+        fetch("https://studiorenegade.fr/app_data.json.php")
             .then((data) => data.json())
             .then((result) => this.props.storeRenegadeData(result))
+            .catch((err) => Alert.alert("Oh non !", err.message))
         this.liveEventInterval = setInterval(() => this.setState({ currentLiveEvent: this.getLiveEvent() }), 1000)
     }
 
