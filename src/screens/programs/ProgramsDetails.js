@@ -14,7 +14,7 @@ export default class ProgramsDetails extends Component {
         const programDescription = params.programDetail.description
         const logoEmission = params.programDetail.logo
         return (
-            <ScrollViewWithHeader style={{ flex: 1 }} navigation={this.props.navigation}>
+            <ScrollViewWithHeader style={styles.root} navigation={this.props.navigation}>
                 <View style={styles.container}>
                     <View style={{ justifyContent: "center", alignItems: "center", marginBottom: 10 }}>
                         <Image source={{ uri: logoEmission }} style={styles.logo} />
@@ -41,6 +41,10 @@ export default class ProgramsDetails extends Component {
 }
 
 const styles = StyleSheet.create({
+    root: {
+        flex: 1,
+        backgroundColor: "#F2EDE9",
+    },
     logo: {
         marginTop: 10,
         borderRadius: 40,

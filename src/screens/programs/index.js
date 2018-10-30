@@ -6,15 +6,15 @@ import ProgramsDetails from "./ProgramsDetails"
 
 import Header from "../../components/Header"
 
-export const Routes = {
+export const ProgramRoutes = {
     programsHome: "PROGRAMS_HOME",
     programsDetails: "PROGRAMS_DETAILS",
 }
 
 export default createStackNavigator(
     {
-        [Routes.programsHome]: Programs,
-        [Routes.programsDetails]: ProgramsDetails,
+        [ProgramRoutes.programsHome]: Programs,
+        [ProgramRoutes.programsDetails]: ProgramsDetails,
     },
     {
         navigationOptions: ({ navigation }) => {
@@ -26,6 +26,7 @@ export default createStackNavigator(
                         navigation={navigation}
                         scrollContentYOffset={scrollContentYOffset}
                         shouldShowBackButton={index !== 0}
+                        params={params}
                     />
                 ),
             }

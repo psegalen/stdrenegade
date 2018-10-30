@@ -11,7 +11,6 @@ import {
 } from "react-native"
 import PropTypes from "prop-types"
 import IconMCI from "react-native-vector-icons/MaterialCommunityIcons"
-import { Routes } from "../screens/programs"
 
 const windowSize = Dimensions.get("window")
 
@@ -82,7 +81,13 @@ class Header extends React.Component {
                 </SafeAreaView>
                 {this.props.shouldShowBackButton && (
                     <TouchableOpacity
-                        onPress={() => (this.props.navigation ? this.props.navigation.goBack() : undefined)}
+                        onPress={() =>
+                            this.props.navigation
+                                ? this.props.navigation.state.params.backRoute
+                                    ? this.props.navigation.navigate(this.props.navigation.state.params.backRoute)
+                                    : this.props.navigation.goBack()
+                                : undefined
+                        }
                         style={{ padding: 10, position: "absolute", top: 30, left: 20 }}
                     >
                         <IconMCI name="arrow-left" size={36} color="#FFF" />

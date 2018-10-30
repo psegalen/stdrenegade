@@ -1,8 +1,20 @@
 import React, { Component } from "react"
-import { View, Text, StyleSheet, Linking, Image, TouchableHighlight, Alert } from "react-native"
+import { View, Text, StyleSheet, Linking, Image, TouchableOpacity, Alert } from "react-native"
 import { connect } from "react-redux"
 import { remainingTime } from "../tools/Date"
 import { storeRenegadeData, fetchRenegadeData } from "../data/renegade/actions"
+import { ProgramRoutes } from "../screens/programs"
+import { Routes } from "../screens"
+import IconMCI from "react-native-vector-icons/MaterialCommunityIcons"
+
+const TouchOrNot = (props) =>
+    props.touchable ? (
+        <TouchableOpacity onPress={props.onPress} style={props.style}>
+            {props.children}
+        </TouchableOpacity>
+    ) : (
+        <View style={props.style}>{props.children}</View>
+    )
 
 class Agenda extends Component {
     constructor(props) {
@@ -65,7 +77,17 @@ class Agenda extends Component {
         const program = this.getProgramFromEvent(event)
         const streamer = this.getStreamerFromEvent(event)
         return (
-            <View key={event.id} style={styles.programRoot}>
+            <TouchOrNot
+                key={event.id}
+                style={styles.programRoot}
+                touchable={program !== undefined}
+                onPress={() =>
+                    this.props.navigation.navigate(ProgramRoutes.programsDetails, {
+                        programDetail: program,
+                        backRoute: Routes.home,
+                    })
+                }
+            >
                 <Image
                     style={styles.programLogo}
                     source={{
@@ -82,7 +104,10 @@ class Agenda extends Component {
                     </Text>
                     <Text style={styles.programTime}>{remainingTime(event.time_start * 1000)}</Text>
                 </View>
-            </View>
+                {program !== undefined && (
+                    <IconMCI name="chevron-right" size={30} color="#000" style={{ marginRight: 10 }} />
+                )}
+            </TouchOrNot>
         )
     }
 
@@ -98,7 +123,7 @@ class Agenda extends Component {
         return (
             <View style={styles.root}>
                 {liveEvent && (
-                    <TouchableHighlight style={styles.touchLive} onPress={this.openTwitch}>
+                    <TouchableOpacity style={styles.touchLive} onPress={this.openTwitch}>
                         <View style={styles.containerLive}>
                             <Image style={styles.liveLogo} source={{ uri: logo }} />
                             <View style={styles.programInfo}>
@@ -113,7 +138,7 @@ class Agenda extends Component {
                             </View>
                             <Image source={require("../res/images/twitch.png")} style={{ height: 50, width: 50 }} />
                         </View>
-                    </TouchableHighlight>
+                    </TouchableOpacity>
                 )}
                 <Text style={styles.title}>Agenda</Text>
                 {this.props.renegade.events.map(

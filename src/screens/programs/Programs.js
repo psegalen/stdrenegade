@@ -2,21 +2,21 @@ import React, { Component } from "react"
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native"
 import { connect } from "react-redux"
 
-import { Routes } from "."
+import { ProgramRoutes } from "."
 
 import ScrollViewWithHeader from "../../components/ScrollViewWithHeader"
 
 class Programs extends Component {
     render() {
         return (
-            <ScrollViewWithHeader style={{ flex: 1 }} navigation={this.props.navigation}>
-                <View style={{ flex: 1 }}>
+            <ScrollViewWithHeader style={styles.root} navigation={this.props.navigation}>
+                <View style={styles.root}>
                     {this.props.renegade.programs.map((program) => (
                         <View key={program.id} style={styles.container}>
                             <TouchableOpacity
                                 style={styles.emission}
                                 onPress={() =>
-                                    this.props.navigation.navigate(Routes.programsDetails, {
+                                    this.props.navigation.navigate(ProgramRoutes.programsDetails, {
                                         programDetail: program,
                                     })
                                 }
@@ -38,6 +38,10 @@ class Programs extends Component {
 }
 
 const styles = StyleSheet.create({
+    root: {
+        flex: 1,
+        backgroundColor: "#F2EDE9",
+    },
     container: {
         backgroundColor: "#DDD",
         borderRadius: 80,
