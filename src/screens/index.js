@@ -4,7 +4,7 @@ import IconII from "react-native-vector-icons/Ionicons"
 import IconFA from "react-native-vector-icons/FontAwesome"
 
 import Home from "./home/Home"
-import ProgramsNavigator from "./programs"
+import ProgramsNavigator, { ProgramRoutes } from "./programs"
 import SupportUs from "./support-us/SupportUs"
 
 import Colors from "../res/colors"
@@ -45,6 +45,14 @@ export default createBottomTabNavigator(
                             return "Nous Soutenir"
                     }
                 })(),
+                tabBarOnPress: (tab) => {
+                    switch (routeName) {
+                        case Routes.programs:
+                            tab.navigation.navigate({ routeName: ProgramRoutes.programsHome })
+                        default:
+                            tab.defaultHandler()
+                    }
+                },
             }
         },
         tabBarOptions: {
