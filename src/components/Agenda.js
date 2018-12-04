@@ -154,11 +154,11 @@ const styles = StyleSheet.create({
         backgroundColor: "#F2EDE9",
     },
     title: {
-        fontFamily: "Montserrat-Light",
+        fontFamily: "Montserrat-Medium",
         fontSize: 20,
         textAlign: "center",
-        fontWeight: "bold",
         paddingVertical: 10,
+        color: "#000",
     },
     touchLive: {
         height: 60,
@@ -208,10 +208,9 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     programName: {
-        fontFamily: "Montserrat-Light",
+        fontFamily: "Montserrat-Medium",
         color: "#000",
         fontSize: 20,
-        fontWeight: "bold",
     },
     programTime: {
         fontFamily: "Montserrat-Light",

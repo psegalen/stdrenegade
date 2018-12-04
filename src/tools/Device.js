@@ -8,6 +8,9 @@ const Device = {
         }
         return StatusBar.currentHeight
     },
+    getBackArrowPosition() {
+        return Platform.OS === "ios" ? 30 : 10
+    },
 }
 
 export default Device

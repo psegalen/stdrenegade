@@ -65,10 +65,9 @@ const styles = StyleSheet.create({
         paddingLeft: 10,
     },
     programName: {
-        fontFamily: "Montserrat-Light",
+        fontFamily: "Montserrat-Medium",
         color: "#000",
         fontSize: 18,
-        fontWeight: "bold",
     },
     programTime: {
         fontFamily: "Montserrat-Light",

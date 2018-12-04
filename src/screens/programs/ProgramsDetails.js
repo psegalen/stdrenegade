@@ -52,18 +52,17 @@ const styles = StyleSheet.create({
         width: 80,
     },
     streamerLogo: {
-        borderRadius: 20,
-        height: 40,
-        width: 40,
+        borderRadius: 30,
+        height: 60,
+        width: 60,
     },
     container: {
         padding: 10,
     },
     title: {
-        fontFamily: "Montserrat-Light",
+        fontFamily: "Montserrat-Medium",
         color: "#000",
         fontSize: 20,
-        fontWeight: "bold",
         textAlign: "center",
         marginTop: 10,
     },
@@ -71,6 +70,8 @@ const styles = StyleSheet.create({
         textAlign: "justify",
         fontSize: 16,
         marginTop: 10,
+        fontFamily: "Montserrat-Light",
+        color: "#000",
     },
     streameur: {
         height: 70,

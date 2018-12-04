@@ -6,9 +6,11 @@ import ScrollViewWithHeader from "../../components/ScrollViewWithHeader"
 export default class SupportUs extends Component {
     render() {
         return (
-            <ScrollViewWithHeader style={{ flex: 1 }}>
+            <ScrollViewWithHeader style={{ flex: 1, backgroundColor: "#FFF" }}>
                 <View style={{ justifyContent: "center", alignItems: "center" }}>
-                    <Text style={{ fontFamily: "Montserrat-Medium", marginTop: 10, fontSize: 25 }}>MERCI À VOUS !</Text>
+                    <Text style={{ fontFamily: "Montserrat-Medium", marginTop: 10, fontSize: 25, color: "#000" }}>
+                        MERCI À VOUS !
+                    </Text>
                     <View style={{ width: "95%", marginTop: 10 }}>
                         <Text style={styles.containerText}>
                             Aujourd'hui nous pouvons produire notre contenu grâce à vos financements ! Que vous
@@ -76,6 +78,7 @@ const styles = StyleSheet.create({
         fontSize: 15,
         fontWeight: "400",
         lineHeight: 20,
+        color: "#000",
     },
     bar: {
         marginTop: 28,

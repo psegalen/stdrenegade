@@ -11,6 +11,7 @@ import {
 } from "react-native"
 import PropTypes from "prop-types"
 import IconMCI from "react-native-vector-icons/MaterialCommunityIcons"
+import Device from "../tools/Device"
 
 const windowSize = Dimensions.get("window")
 
@@ -88,7 +89,7 @@ class Header extends React.Component {
                                     : this.props.navigation.goBack()
                                 : undefined
                         }
-                        style={{ padding: 10, position: "absolute", top: 30, left: 20 }}
+                        style={{ padding: 10, position: "absolute", top: Device.getBackArrowPosition(), left: 20 }}
                     >
                         <IconMCI name="arrow-left" size={36} color="#FFF" />
                     </TouchableOpacity>
