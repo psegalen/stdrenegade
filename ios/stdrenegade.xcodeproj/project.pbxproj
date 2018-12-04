@@ -1399,6 +1399,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fr.studiorenegade.app;
 				PRODUCT_NAME = stdrenegade;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1426,6 +1427,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = fr.studiorenegade.app;
 				PRODUCT_NAME = stdrenegade;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
