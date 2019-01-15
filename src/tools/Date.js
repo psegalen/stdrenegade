@@ -1,5 +1,5 @@
 export const remainingTime = (timestamp) => {
-    const days = ["Dimanche", "Lundi", "Mardi", "Mecredi", "Jeudi", "Vendredi", "Samedi"]
+    const days = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"]
     const now = new Date()
     const then = new Date(timestamp)
     const diff = timestamp - now.getTime()
