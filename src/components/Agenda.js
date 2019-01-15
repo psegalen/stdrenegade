@@ -128,7 +128,7 @@ class Agenda extends Component {
                             <Image style={styles.liveLogo} source={{ uri: logo }} />
                             <View style={styles.programInfo}>
                                 <Text style={styles.live}>Actuellement en live !</Text>
-                                <Text style={styles.emissionLive}>
+                                <Text style={styles.emissionLive} numberOfLines={1}>
                                     {program
                                         ? program.name
                                         : liveEvent.type === "repeat"
