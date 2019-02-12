@@ -11,6 +11,12 @@ const Device = {
     getBackArrowPosition() {
         return Platform.OS === "ios" ? 30 : 10
     },
+    getDeviceName() {
+        return DeviceInfo.getDeviceName()
+    },
+    getDeviceModel() {
+        return `${DeviceInfo.getBrand()} - ${DeviceInfo.getModel()}`
+    },
 }
 
 export default Device
