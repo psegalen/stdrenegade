@@ -10,6 +10,8 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 @import Firebase;
+#import "RNFirebaseNotifications.h"
+#import "RNFirebaseMessaging.h"
 
 @implementation AppDelegate
 
@@ -31,7 +33,21 @@
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   [FIRApp configure];
+  [RNFirebaseNotifications configure];
   return YES;
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
+  [[RNFirebaseNotifications instance] didReceiveLocalNotification:notification];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo
+fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler{
+  [[RNFirebaseNotifications instance] didReceiveRemoteNotification:userInfo fetchCompletionHandler:completionHandler];
+}
+
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings {
+  [[RNFirebaseMessaging instance] didRegisterUserNotificationSettings:notificationSettings];
 }
 
 @end

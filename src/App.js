@@ -5,6 +5,7 @@ import firebase from "react-native-firebase"
 
 import RootNavigator from "./screens"
 import store from "./data/store"
+import Device from "./tools/Device"
 
 export default class App extends React.Component {
     componentDidMount() {
@@ -48,6 +49,29 @@ export default class App extends React.Component {
                         })
                 }
             })
+        firebase.messaging().onMessage((message) => console.log("onMessage", message.data))
+        firebase.notifications().onNotificationOpened((notif) => this.handleNotifcation(notif.notification))
+        firebase
+            .notifications()
+            .getInitialNotification()
+            .then((notif) => {
+                this.handleNotifcation(notif.notification)
+                firebase.notifications().cancelAllNotifications()
+            })
+    }
+
+    handleNotifcation(notif) {
+        console.log("handleNotifcation", notif)
+        if (notif.data && notif.data.action) {
+            switch (notif.data.action) {
+                case "openTwitch":
+                    Device.openTwitch()
+                    break
+                default:
+                    //nothing
+                    break
+            }
+        }
     }
 
     render() {

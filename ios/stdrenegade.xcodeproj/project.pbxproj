@@ -413,6 +413,7 @@
 		80E77C6B658641C683DFF444 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8F4D0A962212DB8E00C2FEB9 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		8F8E7B78221C22E8007E1281 /* stdrenegade.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = stdrenegade.entitlements; path = stdrenegade/stdrenegade.entitlements; sourceTree = "<group>"; };
 		8F9FA73720C6A7D400F62436 /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNDeviceInfo.xcodeproj; path = "../node_modules/react-native-device-info/ios/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; };
 		8FD45F7F2209B507002BAB3D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8FD45FAE2209B6D0002BAB3D /* FIRAnalyticsConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FIRAnalyticsConnector.framework; path = Carthage/Build/iOS/FIRAnalyticsConnector.framework; sourceTree = "<group>"; };
@@ -598,6 +599,7 @@
 		13B07FAE1A68108700A75B9A /* stdrenegade */ = {
 			isa = PBXGroup;
 			children = (
+				8F8E7B78221C22E8007E1281 /* stdrenegade.entitlements */,
 				8FD45F7F2209B507002BAB3D /* GoogleService-Info.plist */,
 				8FDF67F020B4310900EDDB3B /* splash_base.jpg */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -899,6 +901,14 @@
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = QUDTCK988D;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1492,6 +1502,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = stdrenegade/stdrenegade.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1507,6 +1518,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/Firebase/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/**",
 				);
 				INFOPLIST_FILE = stdrenegade/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1528,6 +1540,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = stdrenegade/stdrenegade.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1542,6 +1555,7 @@
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/Firebase/**",
+					"$(SRCROOT)/../node_modules/react-native-firebase/**",
 				);
 				INFOPLIST_FILE = stdrenegade/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

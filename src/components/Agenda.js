@@ -1,11 +1,12 @@
 import React, { Component } from "react"
-import { View, Text, StyleSheet, Linking, Image, TouchableOpacity, Alert } from "react-native"
+import { View, Text, StyleSheet, Image, TouchableOpacity, Alert } from "react-native"
 import { connect } from "react-redux"
 import { remainingTime } from "../tools/Date"
 import { storeRenegadeData, fetchRenegadeData } from "../data/renegade/actions"
 import { ProgramRoutes } from "../screens/programs"
 import { Routes } from "../screens"
 import IconMCI from "react-native-vector-icons/MaterialCommunityIcons"
+import Device from "../tools/Device"
 
 const TouchOrNot = (props) =>
     props.touchable ? (
@@ -44,18 +45,6 @@ class Agenda extends Component {
         const year = now.getFullYear()
 
         return `${day}-${month}-${year}`
-    }
-
-    openTwitch() {
-        const twitchWeb = "https://twitch.tv/studiorenegade"
-        const twitchApp = "twitch://stream/studiorenegade"
-        Linking.canOpenURL(twitchApp).then((canOpen) => {
-            if (canOpen) {
-                Linking.openURL(twitchApp)
-            } else {
-                Linking.openURL(twitchWeb)
-            }
-        })
     }
 
     getLiveEvent() {
@@ -123,7 +112,7 @@ class Agenda extends Component {
         return (
             <View style={styles.root}>
                 {liveEvent && (
-                    <TouchableOpacity style={styles.touchLive} onPress={this.openTwitch}>
+                    <TouchableOpacity style={styles.touchLive} onPress={Device.openTwitch}>
                         <View style={styles.containerLive}>
                             <Image style={styles.liveLogo} source={{ uri: logo }} />
                             <View style={styles.programInfo}>
