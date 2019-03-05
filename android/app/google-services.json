@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "92918735411",
+    "firebase_url": "https://studio-renegade-9c4bd.firebaseio.com",
+    "project_id": "studio-renegade-9c4bd",
+    "storage_bucket": "studio-renegade-9c4bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92918735411:android:1facbd5ff74f3787",
+        "android_client_info": {
+          "package_name": "fr.studiorenegade.application"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92918735411-3558c10efo6r33dieea7btgh2d4dk8iu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFcIT905RAglA14ROU5b7XwfwEjpVG_2Y"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

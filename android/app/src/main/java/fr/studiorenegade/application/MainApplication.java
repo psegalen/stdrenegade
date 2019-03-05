@@ -1,4 +1,4 @@
-package com.stdrenegade;
+package fr.studiorenegade.application;
 
 import android.app.Application;
 
@@ -13,6 +13,10 @@ import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import java.util.Arrays;
 import java.util.List;
 
+import io.invertase.firebase.RNFirebasePackage;
+import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;
+import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage;
+
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
@@ -26,7 +30,10 @@ public class MainApplication extends Application implements ReactApplication {
       return Arrays.<ReactPackage>asList(
         new MainReactPackage(),
         new VectorIconsPackage(),
-        new RNDeviceInfo()
+        new RNDeviceInfo(),
+          new RNFirebasePackage(),
+          new RNFirebaseMessagingPackage(),
+          new RNFirebaseNotificationsPackage()
       );
     }
 

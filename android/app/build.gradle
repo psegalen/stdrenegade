@@ -98,7 +98,7 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.stdrenegade"
+        applicationId "fr.studiorenegade.application"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -153,6 +153,11 @@ dependencies {
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation project(':react-native-vector-icons')
     implementation project(':react-native-device-info')
+    implementation project(':react-native-firebase')
+    implementation "com.google.android.gms:play-services-analytics:16.0.4"
+    implementation "com.google.android.gms:play-services-base:16.0.1"
+    implementation 'com.google.firebase:firebase-core:16.0.4'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
 }
 
 // Run this once to be able to run the application with BUCK
@@ -161,3 +166,5 @@ task copyDownloadableDepsToLibs(type: Copy) {
     from configurations.compile
     into 'libs'
 }
+
+apply plugin: 'com.google.gms.google-services'

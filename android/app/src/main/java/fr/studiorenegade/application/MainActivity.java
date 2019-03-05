@@ -1,4 +1,4 @@
-package com.stdrenegade;
+package fr.studiorenegade.application;
 
 import com.facebook.react.ReactActivity;
 
