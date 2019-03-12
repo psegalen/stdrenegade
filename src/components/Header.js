@@ -82,13 +82,7 @@ class Header extends React.Component {
                 </SafeAreaView>
                 {this.props.shouldShowBackButton && (
                     <TouchableOpacity
-                        onPress={() =>
-                            this.props.navigation
-                                ? this.props.navigation.state.params.backRoute
-                                    ? this.props.navigation.navigate(this.props.navigation.state.params.backRoute)
-                                    : this.props.navigation.goBack()
-                                : undefined
-                        }
+                        onPress={() => (this.props.navigation ? this.props.navigation.goBack() : undefined)}
                         style={{ padding: 10, position: "absolute", top: Device.getBackArrowPosition(), left: 20 }}
                     >
                         <IconMCI name="arrow-left" size={36} color="#FFF" />

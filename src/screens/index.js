@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from "react-navigation"
 import IconII from "react-native-vector-icons/Ionicons"
 import IconFA from "react-native-vector-icons/FontAwesome"
 
-import Home from "./home/Home"
+import HomeNavigator, { HomeRoutes } from "./home"
 import ProgramsNavigator, { ProgramRoutes } from "./programs"
 import SupportUs from "./support-us/SupportUs"
 
@@ -17,7 +17,7 @@ export const Routes = {
 
 export default createBottomTabNavigator(
     {
-        [Routes.home]: Home,
+        [Routes.home]: HomeNavigator,
         [Routes.programs]: ProgramsNavigator,
         [Routes.supportUs]: SupportUs,
     },
@@ -25,7 +25,7 @@ export default createBottomTabNavigator(
         navigationOptions: ({ navigation }) => {
             const { routeName } = navigation.state
             return {
-                tabBarIcon: ({ focused, tintColor }) => {
+                tabBarIcon: ({ tintColor }) => {
                     switch (routeName) {
                         case Routes.home:
                             return <IconII name="ios-home" color={tintColor} size={26} />
@@ -46,9 +46,14 @@ export default createBottomTabNavigator(
                     }
                 })(),
                 tabBarOnPress: (tab) => {
+                    const { routeName } = tab.navigation.state
+                    console.log(tab)
+                    console.log(tab.navigation.getScreenProps())
                     switch (routeName) {
                         case Routes.programs:
                             tab.navigation.navigate({ routeName: ProgramRoutes.programsHome })
+                        case Routes.home:
+                            tab.navigation.navigate({ routeName: HomeRoutes.homeHome })
                         default:
                             tab.defaultHandler()
                     }

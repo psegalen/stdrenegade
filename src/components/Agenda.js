@@ -3,10 +3,9 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, Alert } from "react-na
 import { connect } from "react-redux"
 import { remainingTime } from "../tools/Date"
 import { storeRenegadeData, fetchRenegadeData } from "../data/renegade/actions"
-import { ProgramRoutes } from "../screens/programs"
-import { Routes } from "../screens"
 import IconMCI from "react-native-vector-icons/MaterialCommunityIcons"
 import Device from "../tools/Device"
+import { HomeRoutes } from "../screens/home"
 
 const TouchOrNot = (props) =>
     props.touchable ? (
@@ -71,9 +70,8 @@ class Agenda extends Component {
                 style={styles.programRoot}
                 touchable={program !== undefined}
                 onPress={() =>
-                    this.props.navigation.navigate(ProgramRoutes.programsDetails, {
+                    this.props.navigation.navigate(HomeRoutes.homeDetails, {
                         programDetail: program,
-                        backRoute: Routes.home,
                     })
                 }
             >
