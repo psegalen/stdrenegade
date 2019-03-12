@@ -55,8 +55,10 @@ export default class App extends React.Component {
             .notifications()
             .getInitialNotification()
             .then((notif) => {
-                this.handleNotifcation(notif.notification)
-                firebase.notifications().cancelAllNotifications()
+                if (notif) {
+                    this.handleNotifcation(notif.notification)
+                    firebase.notifications().cancelAllNotifications()
+                }
             })
     }
 
