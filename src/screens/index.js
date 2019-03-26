@@ -52,10 +52,13 @@ export default createBottomTabNavigator(
                     switch (routeName) {
                         case Routes.programs:
                             tab.navigation.navigate({ routeName: ProgramRoutes.programsHome })
+                            break
                         case Routes.home:
                             tab.navigation.navigate({ routeName: HomeRoutes.homeHome })
+                            break
                         default:
                             tab.defaultHandler()
+                            break
                     }
                 },
             }
