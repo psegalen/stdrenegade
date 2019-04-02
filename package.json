@@ -7,12 +7,13 @@
         "react-devtools": "react-devtools",
         "test": "jest",
         "prettier-project": "prettier --write '**/*.{js,jsx,json}'",
-        "precommit": "pretty-quick --staged"
+        "precommit": "pretty-quick --staged",
+        "lint": "eslint ."
     },
     "dependencies": {
-        "react": "16.5.0",
+        "react": "16.8.3",
         "react-devtools": "^3.2.3",
-        "react-native": "0.57.1",
+        "react-native": "0.59.3",
         "react-native-device-info": "^0.21.5",
         "react-native-firebase": "^5.2.1",
         "react-native-vector-icons": "^4.6.0",
@@ -21,14 +22,17 @@
         "redux": "^4.0.0"
     },
     "devDependencies": {
-        "babel-core": "7.0.0-bridge.0",
-        "babel-jest": "23.6.0",
+        "@babel/core": "^7.4.0",
+        "@babel/runtime": "^7.4.2",
+        "@react-native-community/eslint-config": "^0.0.3",
+        "babel-jest": "^24.5.0",
+        "eslint": "^5.16.0",
         "husky": "^0.14.3",
-        "jest": "23.6.0",
-        "metro-react-native-babel-preset": "^0.45.0",
+        "jest": "^24.5.0",
+        "metro-react-native-babel-preset": "^0.53.1",
         "prettier": "1.13.2",
         "pretty-quick": "^1.6.0",
-        "react-test-renderer": "16.5.0"
+        "react-test-renderer": "16.8.3"
     },
     "jest": {
         "preset": "react-native"
