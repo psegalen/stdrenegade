@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { View, Text, StyleSheet, Image, TouchableOpacity, Alert } from "react-native"
+import { View, Text, StyleSheet, Image, TouchableOpacity, Alert, FlatList } from "react-native"
 import { connect } from "react-redux"
 import { remainingTime } from "../tools/Date"
 import { storeRenegadeData, fetchRenegadeData } from "../data/renegade/actions"
@@ -25,16 +25,27 @@ class Agenda extends Component {
     }
 
     componentDidMount() {
+        this.fetchData()
+        this.liveEventInterval = setInterval(() => {
+            const currentLiveEvent = this.getLiveEvent()
+            if (
+                this.state.currentLiveEvent === null ||
+                (currentLiveEvent && this.state.currentLiveEvent.id !== currentLiveEvent.id)
+            )
+                this.setState({ currentLiveEvent })
+        }, 1000)
+    }
+
+    componentWillUnmount() {
+        if (this.liveEventInterval) clearInterval(this.liveEventInterval)
+    }
+
+    fetchData() {
         this.props.fetchRenegadeData()
         fetch("https://studiorenegade.fr/app_data.json.php")
             .then((data) => data.json())
             .then((result) => this.props.storeRenegadeData(result))
             .catch((err) => Alert.alert("Oh non !", err.message))
-        this.liveEventInterval = setInterval(() => this.setState({ currentLiveEvent: this.getLiveEvent() }), 1000)
-    }
-
-    componentWillUnmount() {
-        if (this.liveEventInterval) clearInterval(this.liveEventInterval)
     }
 
     currentDate() {
@@ -128,9 +139,13 @@ class Agenda extends Component {
                     </TouchableOpacity>
                 )}
                 <Text style={styles.title}>Agenda</Text>
-                {this.props.renegade.events.map(
-                    (event) => (new Date().getTime() < event.time_start * 1000 ? this.renderProgram(event) : undefined)
-                )}
+                <FlatList
+                    data={this.props.renegade.events.filter((event) => new Date().getTime() < event.time_start * 1000)}
+                    renderItem={({ item }) => this.renderProgram(item)}
+                    refreshing={this.props.renegade.isLoading}
+                    style={{ flex: 1 }}
+                    onRefresh={() => this.fetchData()}
+                />
             </View>
         )
     }
@@ -139,6 +154,7 @@ class Agenda extends Component {
 const styles = StyleSheet.create({
     root: {
         backgroundColor: "#F2EDE9",
+        flex: 1,
     },
     title: {
         fontFamily: "Montserrat-Medium",
