@@ -67,7 +67,7 @@ class Header extends React.Component {
         return (
             <ImageBackground
                 source={require("../res/images/header-back.jpg")}
-                style={[this.props.styles, styles.container]}
+                style={[this.props.style ? this.props.style : styles.container]}
                 resizeMode="cover"
             >
                 <SafeAreaView style={{ flex: 1 }}>

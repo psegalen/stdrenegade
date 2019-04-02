@@ -13,6 +13,8 @@ export default class ScrollViewWithHeader extends Component {
 
     state = {
         offsetY: 0,
+        isScrollEnabled: true,
+        scrollViewHeight: 0,
     }
 
     onScroll = ({ nativeEvent }) =>
@@ -20,23 +22,30 @@ export default class ScrollViewWithHeader extends Component {
             ? this.props.navigation.setParams({ scrollContentYOffset: nativeEvent.contentOffset.y })
             : this.setState({ offsetY: nativeEvent.contentOffset.y })
 
+    onScrollViewLayout = (evt) => {
+        this.setState({ scrollViewHeight: evt.nativeEvent.layout.height })
+    }
+
+    onRootViewLayout = (evt) => {
+        this.setState({ isScrollEnabled: evt.nativeEvent.layout.height > this.state.scrollViewHeight })
+    }
+
     render() {
         return (
             <SafeAreaView style={this.props.style}>
-                <ScrollView style={{ flex: 1 }} scrollEventThrottle={16} onScroll={this.onScroll}>
-                    <View style={{ flex: 1, marginTop: Header.maxHeight }}>{this.props.children}</View>
+                <ScrollView
+                    style={{ flex: 1 }}
+                    scrollEventThrottle={16}
+                    onScroll={this.onScroll}
+                    onLayout={this.onScrollViewLayout}
+                    scrollEnabled={this.state.isScrollEnabled}
+                >
+                    <View style={{ flex: 1, marginTop: Header.maxHeight }} onLayout={this.onRootViewLayout}>
+                        {this.props.children}
+                    </View>
                 </ScrollView>
-                {!this.props.navigation && <Header style={styles.header} scrollContentYOffset={this.state.offsetY} />}
+                {!this.props.navigation && <Header scrollContentYOffset={this.state.offsetY} />}
             </SafeAreaView>
         )
     }
 }
-
-const styles = StyleSheet.create({
-    header: {
-        position: "absolute",
-        top: 0,
-        left: 0,
-        right: 0,
-    },
-})
