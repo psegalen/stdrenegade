@@ -1,16 +1,16 @@
 import React, { Component } from "react"
-import { View } from "react-native"
+import { SafeAreaView, View } from "react-native"
 import Agenda from "../../components/Agenda"
-import ScrollViewWithHeader from "../../components/ScrollViewWithHeader"
+import Header from "../../components/Header"
 
 export default class Home extends Component {
     render() {
         return (
-            <ScrollViewWithHeader style={{ flex: 1, backgroundColor: "#F2EDE9" }}>
-                <View style={{ flex: 1 }}>
+            <SafeAreaView style={{ flex: 1, backgroundColor: "#F2EDE9" }}>
+                <View style={{ flex: 1, marginTop: Header.maxHeight }}>
                     <Agenda navigation={this.props.navigation} />
                 </View>
-            </ScrollViewWithHeader>
+            </SafeAreaView>
         )
     }
 }
