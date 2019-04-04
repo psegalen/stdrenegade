@@ -47,8 +47,6 @@ export default createBottomTabNavigator(
                 })(),
                 tabBarOnPress: (tab) => {
                     const { routeName } = tab.navigation.state
-                    console.log(tab)
-                    console.log(tab.navigation.getScreenProps())
                     switch (routeName) {
                         case Routes.programs:
                             tab.navigation.navigate({ routeName: ProgramRoutes.programsHome })
