@@ -44,7 +44,9 @@ class Agenda extends Component {
         this.props.fetchRenegadeData()
         fetch("https://studiorenegade.fr/app_data.json.php")
             .then((data) => data.json())
-            .then((result) => this.props.storeRenegadeData(result))
+            .then((result) => {
+                setTimeout(() => this.props.storeRenegadeData(result), 500)
+            })
             .catch((err) => Alert.alert("Oh non !", err.message))
     }
 
