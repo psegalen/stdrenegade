@@ -55,16 +55,6 @@ export default class SupportUs extends Component {
                             style={{ height: 50, width: 135 }}
                         />
                     </TouchableOpacity>
-
-                    <TouchableOpacity
-                        onPress={() =>
-                            Linking.openURL(
-                                "https://www.paypal.com/cgi-bin/webscr/?cmd=_s-xclick&hosted_button_id=QZXLDBZV3UEWS"
-                            )
-                        }
-                    >
-                        <Image source={require("../../res/images/paypal.png")} style={{ height: 50, width: 120 }} />
-                    </TouchableOpacity>
                 </View>
             </ScrollViewWithHeader>
         )
