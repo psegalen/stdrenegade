@@ -30,7 +30,10 @@ class Agenda extends Component {
             const currentLiveEvent = this.getLiveEvent()
             if (
                 this.state.currentLiveEvent === null ||
-                (currentLiveEvent && this.state.currentLiveEvent.id !== currentLiveEvent.id)
+                (currentLiveEvent &&
+                    this.state &&
+                    this.state.currentLiveEvent &&
+                    this.state.currentLiveEvent.id !== currentLiveEvent.id)
             )
                 this.setState({ currentLiveEvent })
         }, 1000)
@@ -45,7 +48,7 @@ class Agenda extends Component {
         fetch("https://studiorenegade.fr/app_data.json.php")
             .then((data) => data.json())
             .then((result) => {
-                setTimeout(() => this.props.storeRenegadeData(result), 500)
+                setTimeout(() => this.props.storeRenegadeData(result), 1000)
             })
             .catch((err) => Alert.alert("Oh non !", err.message))
     }
@@ -61,7 +64,10 @@ class Agenda extends Component {
 
     getLiveEvent() {
         const now = new Date().getTime()
-        return this.props.renegade.events.find((event) => event.time_start * 1000 < now && event.time_end * 1000 > now)
+        return (
+            this.props.renegade.events.find((event) => event.time_start * 1000 < now && event.time_end * 1000 > now) ||
+            null
+        )
     }
 
     getProgramFromEvent(event) {
@@ -77,6 +83,14 @@ class Agenda extends Component {
     renderProgram(event) {
         const program = this.getProgramFromEvent(event)
         const streamer = this.getStreamerFromEvent(event)
+        const twitchIcon = require("../res/images/twitch_round.png")
+        const srLogoUri = program
+            ? program.logo
+            : streamer
+                ? streamer.logo
+                : event.type === "repeat"
+                    ? "https://studiorenegade.fr/static/img/emission-replay-90.jpg"
+                    : undefined
         return (
             <TouchOrNot
                 key={event.id}
@@ -88,16 +102,7 @@ class Agenda extends Component {
                     })
                 }
             >
-                <Image
-                    style={styles.programLogo}
-                    source={{
-                        uri: program
-                            ? program.logo
-                            : streamer
-                                ? streamer.logo
-                                : "https://studiorenegade.fr/static/img/emission-replay-90.jpg",
-                    }}
-                />
+                <Image style={styles.programLogo} source={srLogoUri ? { uri: srLogoUri } : twitchIcon} />
                 <View style={styles.programInfo}>
                     <Text style={styles.programName}>
                         {program ? program.name : event.type === "repeat" ? event.description : event.name}
@@ -147,6 +152,7 @@ class Agenda extends Component {
                     refreshing={this.props.renegade.isLoading}
                     style={{ flex: 1 }}
                     onRefresh={() => this.fetchData()}
+                    keyExtractor={(item) => item.id}
                 />
             </View>
         )
