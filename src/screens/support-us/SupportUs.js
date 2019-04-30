@@ -48,13 +48,6 @@ export default class SupportUs extends Component {
                         <Image source={require("../../res/images/twitch.png")} style={{ height: 70, width: 70 }} />
                         <Text style={styles.containerText}>S'abonner</Text>
                     </TouchableOpacity>
-
-                    <TouchableOpacity onPress={() => Linking.openURL("https://www.tipeee.com/stdrenegade")}>
-                        <Image
-                            source={require("../../res/images/Tipeee_logo.png")}
-                            style={{ height: 50, width: 135 }}
-                        />
-                    </TouchableOpacity>
                 </View>
             </ScrollViewWithHeader>
         )

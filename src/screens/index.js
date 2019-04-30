@@ -1,4 +1,5 @@
 import React from "react"
+import { Linking } from "react-native"
 import { createBottomTabNavigator } from "react-navigation"
 import IconII from "react-native-vector-icons/Ionicons"
 import IconFA from "react-native-vector-icons/FontAwesome"
@@ -53,6 +54,9 @@ export default createBottomTabNavigator(
                             break
                         case Routes.home:
                             tab.navigation.navigate({ routeName: HomeRoutes.homeHome })
+                            break
+                        case Routes.supportUs:
+                            Linking.openURL("https://studiorenegade.fr/soutenir")
                             break
                         default:
                             tab.defaultHandler()
