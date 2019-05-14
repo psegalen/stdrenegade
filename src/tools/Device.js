@@ -4,12 +4,16 @@ import DeviceInfo from "react-native-device-info"
 const Device = {
     getStatusBarHeight() {
         if (Platform.OS === "ios") {
-            return DeviceInfo.getModel() === "iPhone X" ? 44 : 20
+            return DeviceInfo.getDeviceId().indexOf("iPhone11") === 0 ||
+                DeviceInfo.getDeviceId() === "iPhone10,3" ||
+                DeviceInfo.getDeviceId() === "iPhone10,6"
+                ? 44
+                : 20
         }
         return StatusBar.currentHeight
     },
     getBackArrowPosition() {
-        return Platform.OS === "ios" ? 30 : 10
+        return Platform.OS === "ios" ? Device.getStatusBarHeight() + 10 : 10
     },
     getDeviceName() {
         return DeviceInfo.getDeviceName()
