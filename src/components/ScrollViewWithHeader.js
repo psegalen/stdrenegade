@@ -27,7 +27,7 @@ export default class ScrollViewWithHeader extends Component {
     }
 
     onRootViewLayout = (evt) => {
-        this.setState({ isScrollEnabled: evt.nativeEvent.layout.height > this.state.scrollViewHeight })
+        // this.setState({ isScrollEnabled: evt.nativeEvent.layout.height > this.state.scrollViewHeight })
     }
 
     render() {
