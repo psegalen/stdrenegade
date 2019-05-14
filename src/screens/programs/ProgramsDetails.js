@@ -1,8 +1,8 @@
 import React, { Component } from "react"
-import { StyleSheet, Text, View, Image } from "react-native"
+import { StyleSheet, Text, View, Image, TouchableOpacity, Linking } from "react-native"
+import IconII from "react-native-vector-icons/Ionicons"
 
 import ScrollViewWithHeader from "../../components/ScrollViewWithHeader"
-import { remainingTime } from "../../tools/Date"
 
 export default class ProgramsDetails extends Component {
     static navigationOptions = {
@@ -20,6 +20,13 @@ export default class ProgramsDetails extends Component {
                         <Image source={{ uri: logoEmission }} style={styles.logo} />
                     </View>
                     <Text style={styles.title}>{params.programDetail.name}</Text>
+                    {params.programDetail.nextLive ? (
+                        <Text style={[styles.textContainer, { alignSelf: "center" }]}>
+                            Prochain live : {params.programDetail.nextLive}
+                        </Text>
+                    ) : (
+                        undefined
+                    )}
                     <Text style={styles.textContainer}>{programDescription}</Text>
                     <Text style={styles.title}>Streameurs</Text>
                     <View style={{ flexDirection: "row", justifyContent: "space-around", margin: 10 }}>
@@ -29,8 +36,27 @@ export default class ProgramsDetails extends Component {
                             </View>
                         ))}
                     </View>
-                    {params.programDetail.nextLive ? (
-                        <Text style={styles.textContainer}>Prochain live : {params.programDetail.nextLive}</Text>
+                    {params.programDetail.url_youtube ? (
+                        <TouchableOpacity
+                            onPress={() => Linking.openURL(params.programDetail.url_youtube)}
+                            style={{ flexDirection: "row", marginTop: 8, alignItems: "center" }}
+                        >
+                            <View
+                                style={{
+                                    backgroundColor: "#000",
+                                    width: 30,
+                                    height: 30,
+                                    borderRadius: 15,
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    marginRight: 8,
+                                    paddingTop: 3,
+                                }}
+                            >
+                                <IconII name="logo-youtube" color="#F2EDE9" size={20} />
+                            </View>
+                            <Text style={[styles.textContainer, { marginTop: 0 }]}>VOD YouTube</Text>
+                        </TouchableOpacity>
                     ) : (
                         undefined
                     )}
