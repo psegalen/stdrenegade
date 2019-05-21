@@ -50,20 +50,20 @@ export default class App extends React.Component {
                 }
             })
         firebase.messaging().onMessage((message) => console.log("onMessage", message.data))
-        firebase.notifications().onNotificationOpened((notif) => this.handleNotifcation(notif.notification))
+        firebase.notifications().onNotificationOpened((notif) => this.handleNotification(notif.notification))
         firebase
             .notifications()
             .getInitialNotification()
             .then((notif) => {
                 if (notif) {
-                    this.handleNotifcation(notif.notification)
+                    this.handleNotification(notif.notification)
                     firebase.notifications().cancelAllNotifications()
                 }
             })
     }
 
-    handleNotifcation(notif) {
-        console.log("handleNotifcation", notif)
+    handleNotification(notif) {
+        console.log("handleNotification", notif)
         if (notif.data && notif.data.action) {
             switch (notif.data.action) {
                 case "openTwitch":
