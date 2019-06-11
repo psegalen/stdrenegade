@@ -5,6 +5,7 @@ const initialState = {
     events: [],
     programs: [],
     streamers: [],
+    streams: [],
     isLoading: false,
 }
 
@@ -26,11 +27,19 @@ const renegadeReducer = (state = initialState, action) => {
                     anim,
                 }
             })
+            const streams = action.data.streams.map((stream) => {
+                const nextLive = filteredEvents.find((event) => event.stream === stream.id)
+                return {
+                    ...stream,
+                    nextLive: nextLive ? remainingTime(nextLive.time_start * 1000) : "",
+                }
+            })
             return {
                 ...state,
                 events: action.data.events,
                 programs,
                 streamers: action.data.streamers,
+                streams,
                 isLoading: false,
             }
         case renegadeActions.FETCH_RENEGADE_DATA:

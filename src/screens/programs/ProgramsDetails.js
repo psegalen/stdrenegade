@@ -13,6 +13,8 @@ export default class ProgramsDetails extends Component {
         const { params } = this.props.navigation.state
         const programDescription = params.programDetail.description
         const logoEmission = params.programDetail.logo
+        const { streamers } = params
+        const actualStreamers = params.programDetail.anim || streamers
         return (
             <ScrollViewWithHeader style={styles.root} navigation={this.props.navigation}>
                 <View style={styles.container}>
@@ -28,14 +30,20 @@ export default class ProgramsDetails extends Component {
                         undefined
                     )}
                     <Text style={styles.textContainer}>{programDescription}</Text>
-                    <Text style={styles.title}>Streameurs</Text>
-                    <View style={{ flexDirection: "row", justifyContent: "space-around", margin: 10 }}>
-                        {params.programDetail.anim.map((streamer) => (
-                            <View key={streamer.id}>
-                                <Image source={{ uri: streamer.logo }} style={styles.streamerLogo} />
+                    {actualStreamers ? (
+                        <View>
+                            <Text style={styles.title}>Streameurs</Text>
+                            <View style={{ flexDirection: "row", justifyContent: "space-around", margin: 10 }}>
+                                {actualStreamers.map((streamer) => (
+                                    <View key={streamer.id}>
+                                        <Image source={{ uri: streamer.logo }} style={styles.streamerLogo} />
+                                    </View>
+                                ))}
                             </View>
-                        ))}
-                    </View>
+                        </View>
+                    ) : (
+                        undefined
+                    )}
                     {params.programDetail.url_youtube ? (
                         <TouchableOpacity
                             onPress={() => Linking.openURL(params.programDetail.url_youtube)}

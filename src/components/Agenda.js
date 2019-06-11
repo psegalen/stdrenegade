@@ -70,6 +70,10 @@ class Agenda extends Component {
         )
     }
 
+    getStreamFromEvent(event) {
+        return this.props.renegade.streams.find((stream) => stream.id === event.stream)
+    }
+
     getProgramFromEvent(event) {
         return this.props.renegade.programs.find((program) => program.id === event.program)
     }
@@ -80,25 +84,33 @@ class Agenda extends Component {
         )
     }
 
+    getStreamers(streamersId) {
+        return streamersId.map((id) => this.props.renegade.streamers.find((streamer) => streamer.id === id))
+    }
+
     renderProgram(event) {
         const program = this.getProgramFromEvent(event)
         const streamer = this.getStreamerFromEvent(event)
+        const stream = this.getStreamFromEvent(event)
         const twitchIcon = require("../res/images/twitch_round.png")
         const srLogoUri = program
             ? program.logo
-            : streamer
-                ? streamer.logo
-                : event.type === "repeat"
-                    ? "https://studiorenegade.fr/static/img/emission-replay-90.jpg"
-                    : undefined
+            : stream
+                ? stream.logo
+                : streamer
+                    ? streamer.logo
+                    : event.type === "repeat"
+                        ? "https://studiorenegade.fr/static/img/emission-replay-90.jpg"
+                        : undefined
         return (
             <TouchOrNot
                 key={event.id}
                 style={styles.programRoot}
-                touchable={program !== undefined}
+                touchable={program !== undefined || stream !== undefined}
                 onPress={() =>
                     this.props.navigation.navigate(HomeRoutes.homeDetails, {
-                        programDetail: program,
+                        programDetail: program || stream,
+                        streamers: event.streamers ? this.getStreamers(event.streamers) : [],
                     })
                 }
             >
@@ -109,7 +121,7 @@ class Agenda extends Component {
                     </Text>
                     <Text style={styles.programTime}>{remainingTime(event.time_start * 1000)}</Text>
                 </View>
-                {program !== undefined && (
+                {(program !== undefined || stream !== undefined) && (
                     <IconMCI name="chevron-right" size={30} color="#000" style={{ marginRight: 10 }} />
                 )}
             </TouchOrNot>
