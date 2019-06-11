@@ -68,6 +68,30 @@ export default class ProgramsDetails extends Component {
                     ) : (
                         undefined
                     )}
+                    {params.programDetail.url_rss ? (
+                        <TouchableOpacity
+                            onPress={() => Linking.openURL(params.programDetail.url_rss)}
+                            style={{ flexDirection: "row", marginTop: 8, alignItems: "center" }}
+                        >
+                            <View
+                                style={{
+                                    backgroundColor: "#000",
+                                    width: 30,
+                                    height: 30,
+                                    borderRadius: 15,
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                    marginRight: 8,
+                                    paddingTop: 3,
+                                }}
+                            >
+                                <IconII name="logo-rss" color="#F2EDE9" size={20} />
+                            </View>
+                            <Text style={[styles.textContainer, { marginTop: 0 }]}>RSS Podcast</Text>
+                        </TouchableOpacity>
+                    ) : (
+                        undefined
+                    )}
                 </View>
             </ScrollViewWithHeader>
         )
