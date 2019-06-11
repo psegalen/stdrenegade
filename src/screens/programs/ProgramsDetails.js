@@ -44,6 +44,25 @@ export default class ProgramsDetails extends Component {
                     ) : (
                         undefined
                     )}
+                    {params.programDetail.videos ? (
+                        <View>
+                            <Text style={styles.title}>Dernières émissions</Text>
+                            <View style={{ marginHorizontal: 10, alignContent: "center" }}>
+                                {params.programDetail.videos.map((video) => (
+                                    <TouchableOpacity
+                                        key={video.id}
+                                        style={{ marginVertical: 10 }}
+                                        onPress={() => Linking.openURL(video.url)}
+                                    >
+                                        <Image source={{ uri: video.photo }} style={styles.youtubePhoto} />
+                                        <Text style={styles.youtubeTitle}>{video.title}</Text>
+                                    </TouchableOpacity>
+                                ))}
+                            </View>
+                        </View>
+                    ) : (
+                        undefined
+                    )}
                     {params.programDetail.url_youtube ? (
                         <TouchableOpacity
                             onPress={() => Linking.openURL(params.programDetail.url_youtube)}
@@ -113,6 +132,18 @@ const styles = StyleSheet.create({
         borderRadius: 30,
         height: 60,
         width: 60,
+    },
+    youtubePhoto: {
+        width: 300,
+        height: 169,
+        alignSelf: "center",
+    },
+    youtubeTitle: {
+        textAlign: "center",
+        fontSize: 16,
+        marginTop: 4,
+        fontFamily: "Montserrat-Light",
+        color: "#000",
     },
     container: {
         padding: 10,
