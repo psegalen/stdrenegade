@@ -101,6 +101,7 @@ const styles = StyleSheet.create({
         right: 0,
         alignItems: "center",
         justifyContent: "center",
+        paddingTop: Device.getStatusBarHeight(),
     },
 })
 

@@ -2,12 +2,15 @@ import { Platform, StatusBar, Linking } from "react-native"
 import DeviceInfo from "react-native-device-info"
 
 const Device = {
+    isAndroid() {
+        return Platform.OS === "android"
+    },
     getStatusBarHeight() {
         if (Platform.OS === "ios") {
             return DeviceInfo.getDeviceId().indexOf("iPhone11") === 0 ||
                 DeviceInfo.getDeviceId() === "iPhone10,3" ||
                 DeviceInfo.getDeviceId() === "iPhone10,6"
-                ? 44
+                ? 40
                 : 20
         }
         return StatusBar.currentHeight
