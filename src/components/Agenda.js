@@ -29,7 +29,7 @@ class Agenda extends Component {
         this.liveEventInterval = setInterval(() => {
             const currentLiveEvent = this.getLiveEvent()
             if (
-                this.state.currentLiveEvent === null ||
+                (this.state.currentLiveEvent === null && currentLiveEvent) ||
                 (currentLiveEvent &&
                     this.state &&
                     this.state.currentLiveEvent &&
@@ -137,6 +137,9 @@ class Agenda extends Component {
             : streamer
                 ? streamer.logo
                 : "https://studiorenegade.fr/static/img/emission-replay-90.jpg"
+        const events = this.props.renegade.events
+            .filter((event) => new Date().getTime() < event.time_start * 1000)
+            .sort((e1, e2) => e1.time_start - e2.time_start)
         return (
             <View style={styles.root}>
                 {liveEvent && (
@@ -159,7 +162,7 @@ class Agenda extends Component {
                 )}
                 <Text style={styles.title}>Agenda</Text>
                 <FlatList
-                    data={this.props.renegade.events.filter((event) => new Date().getTime() < event.time_start * 1000)}
+                    data={events}
                     renderItem={({ item }) => this.renderProgram(item)}
                     refreshing={this.props.renegade.isLoading}
                     style={{ flex: 1 }}

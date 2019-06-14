@@ -11,7 +11,7 @@ export const remainingTime = (timestamp) => {
         // Tomorrow
         return `Demain à ${then.getHours()}h${zeroPad(then.getMinutes())}`
     }
-    return `${days[then.getDay()]} à ${then.getHours()}h${zeroPad(then.getMinutes())}`
+    return `${days[then.getDay()]} ${then.getDate()} à ${then.getHours()}h${zeroPad(then.getMinutes())}`
 }
 
 const zeroPad = (number) => {
