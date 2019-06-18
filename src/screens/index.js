@@ -6,21 +6,21 @@ import IconFA from "react-native-vector-icons/FontAwesome"
 
 import HomeNavigator, { HomeRoutes } from "./home"
 import ProgramsNavigator, { ProgramRoutes } from "./programs"
-import SupportUs from "./support-us/SupportUs"
 
 import Colors from "../res/colors"
+import User from "./User"
 
 export const Routes = {
     home: "HOME",
     programs: "PROGRAMS",
-    supportUs: "SUPPORT_US",
+    user: "USER",
 }
 
 export default createBottomTabNavigator(
     {
         [Routes.home]: HomeNavigator,
         [Routes.programs]: ProgramsNavigator,
-        [Routes.supportUs]: SupportUs,
+        [Routes.user]: User,
     },
     {
         navigationOptions: ({ navigation }) => {
@@ -32,8 +32,8 @@ export default createBottomTabNavigator(
                             return <IconII name="ios-home" color={tintColor} size={26} />
                         case Routes.programs:
                             return <IconFA name="tv" color={tintColor} size={24} />
-                        case Routes.supportUs:
-                            return <IconII name="ios-card" color={tintColor} size={26} />
+                        case Routes.user:
+                            return <IconFA name="user" color={tintColor} size={26} />
                     }
                 },
                 tabBarLabel: (() => {
@@ -42,8 +42,8 @@ export default createBottomTabNavigator(
                             return "Accueil"
                         case Routes.programs:
                             return "Émissions"
-                        case Routes.supportUs:
-                            return "Nous Soutenir"
+                        case Routes.user:
+                            return "Mon compte"
                     }
                 })(),
                 tabBarOnPress: (tab) => {
@@ -54,9 +54,6 @@ export default createBottomTabNavigator(
                             break
                         case Routes.home:
                             tab.navigation.navigate({ routeName: HomeRoutes.homeHome })
-                            break
-                        case Routes.supportUs:
-                            Linking.openURL("https://studiorenegade.fr/soutenir")
                             break
                         default:
                             tab.defaultHandler()

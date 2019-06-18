@@ -4601,6 +4601,11 @@ mkdirp@0.5.1, mkdirp@^0.5.0, mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
+moment@^2.22.1:
+  version "2.24.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
+  integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
+
 morgan@^1.9.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/morgan/-/morgan-1.9.1.tgz#0a8d16734a1d9afbc824b99df87e738e58e2da59"
@@ -5389,6 +5394,13 @@ react-is@^16.8.3, react-is@^16.8.4:
 react-lifecycles-compat@^3, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
+
+react-native-date-picker@^2.4.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/react-native-date-picker/-/react-native-date-picker-2.4.1.tgz#1f0ae1f204c6d372e645361810dfa0db04bf572e"
+  integrity sha512-l/BFYcCLmrD2OSuB+6pdD1FJmvahXLDivqaTB/Zh6Kiv+HbtV6qO+X9uDjBbNPCLe1I77lG1SPqqPier0KyRgw==
+  dependencies:
+    moment "^2.22.1"
 
 react-native-device-info@^0.21.5:
   version "0.21.5"
