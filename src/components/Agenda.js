@@ -93,15 +93,16 @@ class Agenda extends Component {
         const streamer = this.getStreamerFromEvent(event)
         const stream = this.getStreamFromEvent(event)
         const twitchIcon = require("../res/images/twitch_round.png")
-        const srLogoUri = program
-            ? program.logo
-            : stream
-                ? stream.logo
-                : streamer
-                    ? streamer.logo
-                    : event.type === "repeat"
-                        ? "https://studiorenegade.fr/static/img/emission-replay-90.jpg"
-                        : undefined
+        const srLogoUri =
+            event.type === "repeat"
+                ? "https://studiorenegade.fr/static/img/emission-replay-90.jpg"
+                : program
+                    ? program.logo
+                    : stream
+                        ? stream.logo
+                        : streamer
+                            ? streamer.logo
+                            : "https://studiorenegade.fr/static/img/emission-90.jpg"
         return (
             <TouchOrNot
                 key={event.id}
@@ -132,11 +133,14 @@ class Agenda extends Component {
         const liveEvent = this.state.currentLiveEvent
         const program = liveEvent ? this.getProgramFromEvent(liveEvent) : null
         const streamer = liveEvent ? this.getStreamerFromEvent(liveEvent) : null
-        const logo = program
-            ? program.logo
-            : streamer
-                ? streamer.logo
-                : "https://studiorenegade.fr/static/img/emission-replay-90.jpg"
+        const logo =
+            liveEvent && liveEvent.type === "repeat"
+                ? "https://studiorenegade.fr/static/img/emission-replay-90.jpg"
+                : program
+                    ? program.logo
+                    : streamer
+                        ? streamer.logo
+                        : "https://studiorenegade.fr/static/img/emission-90.jpg"
         const events = this.props.renegade.events
             .filter((event) => new Date().getTime() < event.time_start * 1000)
             .sort((e1, e2) => e1.time_start - e2.time_start)
