@@ -9,6 +9,7 @@ export default class ScrollViewWithHeader extends Component {
         style: ViewPropTypes.style,
         children: PropTypes.node,
         navigation: PropTypes.object, // Provide navigation object if header is in navigation stack
+        padding: PropTypes.number,
     }
 
     state = {
@@ -40,7 +41,10 @@ export default class ScrollViewWithHeader extends Component {
                     onLayout={this.onScrollViewLayout}
                     scrollEnabled={this.state.isScrollEnabled}
                 >
-                    <View style={{ flex: 1, marginTop: Header.maxHeight }} onLayout={this.onRootViewLayout}>
+                    <View
+                        style={{ flex: 1, marginTop: Header.maxHeight, padding: this.props.padding || 0 }}
+                        onLayout={this.onRootViewLayout}
+                    >
                         {this.props.children}
                     </View>
                 </ScrollView>
