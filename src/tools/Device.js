@@ -7,16 +7,12 @@ const Device = {
     },
     getStatusBarHeight() {
         if (Platform.OS === "ios") {
-            return DeviceInfo.getDeviceId().indexOf("iPhone11") === 0 ||
-                DeviceInfo.getDeviceId() === "iPhone10,3" ||
-                DeviceInfo.getDeviceId() === "iPhone10,6"
-                ? 40
-                : 20
+            return DeviceInfo.hasNotch().then((result) => (result ? 40 : 20))
         }
-        return StatusBar.currentHeight
+        return Promise.resolve(StatusBar.currentHeight)
     },
-    getBackArrowPosition() {
-        return Platform.OS === "ios" ? Device.getStatusBarHeight() + 10 : 10
+    getBackArrowPosition(statusBarHeight) {
+        return Platform.OS === "ios" ? statusBarHeight + 10 : 10
     },
     getDeviceName() {
         return DeviceInfo.getDeviceName()

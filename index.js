@@ -1,12 +1,9 @@
-import { AppRegistry, YellowBox } from "react-native";
-import App from "./src/App";
+/**
+ * @format
+ */
 
-YellowBox.ignoreWarnings([
-    "Warning: isMounted(...) is deprecated",
-    ...[
-        "RCTImageLoader",
-        // Add module names here 👇, here 👆 or here 👈... 🤗
-    ].map(module => `Module ${module} requires main queue setup`),
-])
+import { AppRegistry } from "react-native"
+import App from "./src/App"
+import { name as appName } from "./app.json"
 
-AppRegistry.registerComponent("stdrenegade", () => App);
+AppRegistry.registerComponent(appName, () => App)

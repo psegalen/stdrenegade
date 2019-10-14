@@ -43,6 +43,13 @@ class Header extends React.Component {
             scrollContentYOffset: this.props.scrollContentYOffset,
         })
         this.animatedProgress = new Animated.Value(this.animatedProgressValue)
+        this.state = {
+            statusBarHeight: 20,
+        }
+    }
+
+    componentDidMount() {
+        Device.getStatusBarHeight().then((statusBarHeight) => this.setState({ statusBarHeight }))
     }
 
     componentDidUpdate() {
@@ -67,7 +74,11 @@ class Header extends React.Component {
         return (
             <ImageBackground
                 source={require("../res/images/header-back.jpg")}
-                style={[this.props.style ? this.props.style : styles.container]}
+                style={[
+                    this.props.style
+                        ? this.props.style
+                        : { ...styles.container, paddingTop: this.state.statusBarHeight },
+                ]}
                 resizeMode="cover"
             >
                 <SafeAreaView style={{ flex: 1 }}>
@@ -83,7 +94,12 @@ class Header extends React.Component {
                 {this.props.shouldShowBackButton && (
                     <TouchableOpacity
                         onPress={() => (this.props.navigation ? this.props.navigation.goBack() : undefined)}
-                        style={{ padding: 10, position: "absolute", top: Device.getBackArrowPosition(), left: 20 }}
+                        style={{
+                            padding: 10,
+                            position: "absolute",
+                            top: Device.getBackArrowPosition(this.state.statusBarHeight),
+                            left: 20,
+                        }}
                     >
                         <IconMCI name="arrow-left" size={36} color="#FFF" />
                     </TouchableOpacity>
@@ -101,7 +117,6 @@ const styles = StyleSheet.create({
         right: 0,
         alignItems: "center",
         justifyContent: "center",
-        paddingTop: Device.getStatusBarHeight(),
     },
 })
 

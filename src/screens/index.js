@@ -1,6 +1,6 @@
 import React from "react"
 import { Linking } from "react-native"
-import { createBottomTabNavigator } from "react-navigation"
+import { createBottomTabNavigator } from "react-navigation-tabs"
 import IconII from "react-native-vector-icons/Ionicons"
 import IconFA from "react-native-vector-icons/FontAwesome"
 
@@ -9,6 +9,7 @@ import ProgramsNavigator, { ProgramRoutes } from "./programs"
 
 import Colors from "../res/colors"
 import User from "./User"
+import { createAppContainer } from "react-navigation"
 
 export const Routes = {
     home: "HOME",
@@ -16,7 +17,7 @@ export const Routes = {
     user: "USER",
 }
 
-export default createBottomTabNavigator(
+const bottom = createBottomTabNavigator(
     {
         [Routes.home]: HomeNavigator,
         [Routes.programs]: ProgramsNavigator,
@@ -68,3 +69,5 @@ export default createBottomTabNavigator(
         },
     }
 )
+
+export default createAppContainer(bottom)
