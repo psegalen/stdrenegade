@@ -44,7 +44,7 @@ export default class ProgramsDetails extends Component {
                     ) : (
                         undefined
                     )}
-                    {params.programDetail.videos ? (
+                    {params.programDetail.videos && params.programDetail.videos.length > 0 ? (
                         <View>
                             <Text style={styles.title}>Dernières émissions</Text>
                             <View style={{ marginHorizontal: 10, alignContent: "center" }}>
