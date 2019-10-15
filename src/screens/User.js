@@ -24,7 +24,7 @@ class User extends Component {
     state = { date: new Date(), storedDate: undefined }
 
     componentDidMount() {
-        Storage.getResubDate().then((date) => this.setState({ storedDate: date }))
+        Storage.getResubDate().then((date) => this.setState({ storedDate: date, date }))
     }
 
     handleResubDate() {
@@ -47,7 +47,7 @@ class User extends Component {
                         : "A définir"}
                 </Text>
                 <DatePicker
-                    date={this.state.storedDate || this.state.date}
+                    date={this.state.date}
                     onDateChange={(date) => this.setState({ date })}
                     locale="fr"
                     style={{ marginTop: 10, alignSelf: "center" }}
