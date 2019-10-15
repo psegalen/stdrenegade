@@ -12,6 +12,7 @@
         "lint": "eslint ."
     },
     "dependencies": {
+        "@react-native-community/async-storage": "^1.6.2",
         "react": "16.9.0",
         "react-native": "0.61.1",
         "react-native-date-picker": "^2.7.0",
