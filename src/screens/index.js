@@ -1,5 +1,4 @@
 import React from "react"
-import { Linking } from "react-native"
 import { createBottomTabNavigator } from "react-navigation-tabs"
 import IconII from "react-native-vector-icons/Ionicons"
 import IconFA from "react-native-vector-icons/FontAwesome"
@@ -17,6 +16,27 @@ export const Routes = {
     user: "USER",
 }
 
+HomeNavigator.navigationOptions = {
+    tabBarIcon: ({ tintColor }) => <IconII name="ios-home" color={tintColor} size={26} />,
+    tabBarLabel: "Accueil",
+    tabBarOnPress: (tab) => {
+        tab.navigation.navigate({ routeName: HomeRoutes.homeHome })
+    },
+}
+
+ProgramsNavigator.navigationOptions = {
+    tabBarIcon: ({ tintColor }) => <IconFA name="tv" color={tintColor} size={24} />,
+    tabBarLabel: "Émissions",
+    tabBarOnPress: (tab) => {
+        tab.navigation.navigate({ routeName: ProgramRoutes.programsHome })
+    },
+}
+
+User.navigationOptions = {
+    tabBarIcon: ({ tintColor }) => <IconFA name="user" color={tintColor} size={26} />,
+    tabBarLabel: "Mon compte",
+}
+
 const bottom = createBottomTabNavigator(
     {
         [Routes.home]: HomeNavigator,
@@ -24,45 +44,6 @@ const bottom = createBottomTabNavigator(
         [Routes.user]: User,
     },
     {
-        navigationOptions: ({ navigation }) => {
-            const { routeName } = navigation.state
-            return {
-                tabBarIcon: ({ tintColor }) => {
-                    switch (routeName) {
-                        case Routes.home:
-                            return <IconII name="ios-home" color={tintColor} size={26} />
-                        case Routes.programs:
-                            return <IconFA name="tv" color={tintColor} size={24} />
-                        case Routes.user:
-                            return <IconFA name="user" color={tintColor} size={26} />
-                    }
-                },
-                tabBarLabel: (() => {
-                    switch (routeName) {
-                        case Routes.home:
-                            return "Accueil"
-                        case Routes.programs:
-                            return "Émissions"
-                        case Routes.user:
-                            return "Mon compte"
-                    }
-                })(),
-                tabBarOnPress: (tab) => {
-                    const { routeName } = tab.navigation.state
-                    switch (routeName) {
-                        case Routes.programs:
-                            tab.navigation.navigate({ routeName: ProgramRoutes.programsHome })
-                            break
-                        case Routes.home:
-                            tab.navigation.navigate({ routeName: HomeRoutes.homeHome })
-                            break
-                        default:
-                            tab.defaultHandler()
-                            break
-                    }
-                },
-            }
-        },
         tabBarOptions: {
             activeTintColor: Colors.darkRed,
             inactiveTintColor: "gray",
