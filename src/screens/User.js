@@ -35,6 +35,7 @@ class User extends Component {
             "Pensez à renouveler votre abonnement Twitch Prime à la chaîne !",
             this.state.date
         )
+        this.setState({ storedDate: this.state.date })
     }
 
     render() {
