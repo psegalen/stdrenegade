@@ -52,6 +52,7 @@ class User extends Component {
                     onDateChange={(date) => this.setState({ date })}
                     locale="fr"
                     style={{ marginTop: 10, alignSelf: "center" }}
+                    minuteInterval={5}
                 />
                 <Button onPress={this.handleResubDate.bind(this)} title="Définir un rappel" />
             </ScrollViewWithHeader>
