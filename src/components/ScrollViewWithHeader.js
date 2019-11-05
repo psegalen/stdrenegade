@@ -3,6 +3,7 @@ import { SafeAreaView, StyleSheet, ViewPropTypes, ScrollView, View } from "react
 import PropTypes from "prop-types"
 
 import Header from "./Header"
+import Device from "../tools/Device"
 
 export default class ScrollViewWithHeader extends Component {
     static propTypes = {
@@ -42,7 +43,11 @@ export default class ScrollViewWithHeader extends Component {
                     scrollEnabled={this.state.isScrollEnabled}
                 >
                     <View
-                        style={{ flex: 1, marginTop: Header.maxHeight, padding: this.props.padding || 0 }}
+                        style={{
+                            flex: 1,
+                            marginTop: Header.maxHeight + Device.getStatusBarPadding(),
+                            padding: this.props.padding || 0,
+                        }}
                         onLayout={this.onRootViewLayout}
                     >
                         {this.props.children}

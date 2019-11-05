@@ -5,6 +5,9 @@ const Device = {
     isAndroid() {
         return Platform.OS === "android"
     },
+    getStatusBarPadding() {
+        return Platform.select({ ios: 0, android: StatusBar.currentHeight || 0 })
+    },
     getStatusBarHeight() {
         if (Platform.OS === "ios") {
             return DeviceInfo.hasNotch().then((result) => (result ? 40 : 20))
