@@ -24,7 +24,7 @@ class User extends Component {
     state = { date: new Date(), storedDate: undefined }
 
     componentDidMount() {
-        Storage.getResubDate().then((date) => this.setState({ storedDate: date, date }))
+        Storage.getResubDate().then((date) => this.setState({ storedDate: date, date: date || this.state.date }))
     }
 
     handleResubDate() {
