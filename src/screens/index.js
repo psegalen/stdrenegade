@@ -33,8 +33,8 @@ ProgramsNavigator.navigationOptions = {
 }
 
 User.navigationOptions = {
-    tabBarIcon: ({ tintColor }) => <IconFA name="user" color={tintColor} size={26} />,
-    tabBarLabel: "Mon compte",
+    tabBarIcon: ({ tintColor }) => <IconFA name="cog" color={tintColor} size={26} />,
+    tabBarLabel: "Paramètres",
 }
 
 const bottom = createBottomTabNavigator(

@@ -28,13 +28,7 @@ class User extends Component {
     }
 
     handleResubDate() {
-        Storage.setResubDate(this.state.date)
-        Notification.cancelNotifications()
-        Notification.createScheduledNotification(
-            "Renegade Resub",
-            "Pensez à renouveler votre abonnement Twitch Prime à la chaîne !",
-            this.state.date
-        )
+        Notification.renewNotification(this.state.date)
         this.setState({ storedDate: this.state.date })
     }
 

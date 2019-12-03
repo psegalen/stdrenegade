@@ -6,10 +6,12 @@ import firebase from "react-native-firebase"
 import RootNavigator from "./screens"
 import store from "./data/store"
 import Device from "./tools/Device"
+import Notification from "./tools/Notification"
 
 export default class App extends React.Component {
     componentDidMount() {
         StatusBar.setBarStyle("light-content")
+        Notification.createChannel()
         firebase
             .messaging()
             .getToken()
@@ -67,6 +69,13 @@ export default class App extends React.Component {
         if (notif.data && notif.data.action) {
             switch (notif.data.action) {
                 case "openTwitch":
+                    Device.openTwitch()
+                    break
+                case "resub":
+                    // Renew notification in 30 days
+                    const now = new Date().getTime()
+                    const nextNotif = new Date(now + 30 * 24 * 3600 * 1000)
+                    Notification.renewNotification(nextNotif)
                     Device.openTwitch()
                     break
                 default:
