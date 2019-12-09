@@ -8,6 +8,42 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:92918735411:android:0d2c4f8573aec3cf81f946",
+        "android_client_info": {
+          "package_name": "fr.studiorenegade"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "92918735411-3558c10efo6r33dieea7btgh2d4dk8iu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFcIT905RAglA14ROU5b7XwfwEjpVG_2Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "92918735411-3558c10efo6r33dieea7btgh2d4dk8iu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "92918735411-rq1s8nc0ndin7svmft84brggfgmqtfg1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "fr.studiorenegade.application"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:92918735411:android:1facbd5ff74f3787",
         "android_client_info": {
           "package_name": "fr.studiorenegade.application"
@@ -25,15 +61,20 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "92918735411-3558c10efo6r33dieea7btgh2d4dk8iu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "92918735411-rq1s8nc0ndin7svmft84brggfgmqtfg1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "fr.studiorenegade.application"
+              }
+            }
+          ]
         }
       }
     }
