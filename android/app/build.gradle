@@ -131,7 +131,7 @@ android {
         applicationId "fr.studiorenegade"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 5
+        versionCode 6
         versionName "1.0"
     }
     signingConfigs {
