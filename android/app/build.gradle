@@ -128,7 +128,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "fr.studiorenegade.application"
+        applicationId "fr.studiorenegade"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 5
