@@ -18,9 +18,9 @@
 		2DCD954D1E0B4F2C00145EB5 /* stdrenegadeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* stdrenegadeTests.m */; };
 		5A4177F94848B5D784992DD1 /* libPods-stdrenegade-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE3B006BAE22088F0287E8D9 /* libPods-stdrenegade-tvOS.a */; };
 		8F00D5EC23437AE500A34B72 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8F00D5EA23437AE500A34B72 /* GoogleService-Info.plist */; };
-		8F00D5ED23437AE500A34B72 /* splash_base.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8F00D5EB23437AE500A34B72 /* splash_base.jpg */; };
 		8F00D5F22343840400A34B72 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F00D5F02343840400A34B72 /* Montserrat-Light.ttf */; };
 		8F00D5F32343840400A34B72 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F00D5F12343840400A34B72 /* Montserrat-Medium.ttf */; };
+		8F0E8921239E9E9800557E54 /* splash_base.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F0E8920239E9E9700557E54 /* splash_base.png */; };
 		DA83517B5FF10A40CDEA386B /* libPods-stdrenegadeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6AE69763424F49B5E1A6CB /* libPods-stdrenegadeTests.a */; };
 		E8B7BEB439FDFDBB3DF2A9AC /* libPods-stdrenegade-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEA7AC682CCA16181AFD71F /* libPods-stdrenegade-tvOSTests.a */; };
 		EA0A6EDB171CCE4094319AEC /* libPods-stdrenegade.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3DB84AEE5823825200E899F /* libPods-stdrenegade.a */; };
@@ -61,10 +61,10 @@
 		6BEA7AC682CCA16181AFD71F /* libPods-stdrenegade-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-stdrenegade-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88CBF8FB26306B7827A81174 /* Pods-stdrenegade.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade.release.xcconfig"; path = "Target Support Files/Pods-stdrenegade/Pods-stdrenegade.release.xcconfig"; sourceTree = "<group>"; };
 		8F00D5EA23437AE500A34B72 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		8F00D5EB23437AE500A34B72 /* splash_base.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = splash_base.jpg; sourceTree = "<group>"; };
 		8F00D5F02343840400A34B72 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Light.ttf"; path = "../../assets/fonts/Montserrat-Light.ttf"; sourceTree = "<group>"; };
 		8F00D5F12343840400A34B72 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Medium.ttf"; path = "../../assets/fonts/Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		8F00D5FA234384A200A34B72 /* Renegade.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Renegade.entitlements; path = stdrenegade/Renegade.entitlements; sourceTree = "<group>"; };
+		8F0E8920239E9E9700557E54 /* splash_base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_base.png; sourceTree = "<group>"; };
 		98266706E41E2FD243DBE559 /* Pods-stdrenegade-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-stdrenegade-tvOS/Pods-stdrenegade-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		CE6AE69763424F49B5E1A6CB /* libPods-stdrenegadeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-stdrenegadeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF04552AEB2FD5CD09559F8C /* Pods-stdrenegadeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegadeTests.debug.xcconfig"; path = "Target Support Files/Pods-stdrenegadeTests/Pods-stdrenegadeTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -134,9 +134,9 @@
 		13B07FAE1A68108700A75B9A /* stdrenegade */ = {
 			isa = PBXGroup;
 			children = (
+				8F0E8920239E9E9700557E54 /* splash_base.png */,
 				8F00D5FA234384A200A34B72 /* Renegade.entitlements */,
 				8F00D5EA23437AE500A34B72 /* GoogleService-Info.plist */,
-				8F00D5EB23437AE500A34B72 /* splash_base.jpg */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -364,11 +364,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F00D5F22343840400A34B72 /* Montserrat-Light.ttf in Resources */,
+				8F0E8921239E9E9800557E54 /* splash_base.png in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				8F00D5EC23437AE500A34B72 /* GoogleService-Info.plist in Resources */,
 				8F00D5F32343840400A34B72 /* Montserrat-Medium.ttf in Resources */,
-				8F00D5ED23437AE500A34B72 /* splash_base.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,7 +708,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = stdrenegade/Renegade.entitlements;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = QUDTCK988D;
 				INFOPLIST_FILE = stdrenegade/Info.plist;
@@ -731,7 +731,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = stdrenegade/Renegade.entitlements;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = QUDTCK988D;
 				INFOPLIST_FILE = stdrenegade/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
