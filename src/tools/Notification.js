@@ -3,7 +3,10 @@ import { Platform } from "react-native"
 import Storage from "./Storage"
 
 const Notification = {
-    cancelNotifications: () => firebase.notifications().cancelAllNotifications(),
+    cancelNotifications: () => {
+        firebase.notifications().cancelAllNotifications()
+        firebase.notifications().removeAllDeliveredNotifications()
+    },
     createScheduledNotification: (title, body, date) => {
         const notification = new firebase.notifications.Notification()
             .setNotificationId(`RenegadeScheduledNotif${parseInt(Math.random() * 1000000)}`)
@@ -12,7 +15,10 @@ const Notification = {
             .setData({ action: "resub" })
 
         if (Platform.OS === "android") {
-            notification.android.setChannelId("renegade")
+            notification.android
+                .setChannelId("renegade")
+                .android.setSmallIcon("ic_stat_notif_icon")
+                .android.setColor("#B60102")
         }
 
         console.log(notification, date)
