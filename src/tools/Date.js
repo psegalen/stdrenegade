@@ -14,6 +14,6 @@ export const remainingTime = (timestamp) => {
     return `${days[then.getDay()]} ${then.getDate()} à ${then.getHours()}h${zeroPad(then.getMinutes())}`
 }
 
-const zeroPad = (number) => {
+export const zeroPad = (number) => {
     return number > 9 ? `${number}` : `0${number}`
 }

@@ -5,6 +5,7 @@ import DatePicker from "react-native-date-picker"
 import ScrollViewWithHeader from "../components/ScrollViewWithHeader"
 import Storage from "../tools/Storage"
 import Notification from "../tools/Notification"
+import { zeroPad } from "../tools/Date"
 
 const styles = StyleSheet.create({
     root: {
@@ -38,7 +39,9 @@ class User extends Component {
                 <Text style={styles.textContainer}>Fin de mon abonnement Prime à la chaîne :</Text>
                 <Text style={{ ...styles.textContainer, fontSize: 20 }}>
                     {this.state.storedDate
-                        ? `Le ${this.state.storedDate.toLocaleDateString()} à ${this.state.storedDate.getHours()}h${this.state.storedDate.getMinutes()}`
+                        ? `Le ${this.state.storedDate.toLocaleDateString()} à ${this.state.storedDate.getHours()}h${zeroPad(
+                              this.state.storedDate.getMinutes()
+                          )}`
                         : "A définir"}
                 </Text>
                 <DatePicker
@@ -47,6 +50,8 @@ class User extends Component {
                     locale="fr"
                     style={{ marginTop: 10, alignSelf: "center" }}
                     minuteInterval={5}
+                    fadeToColor="#F2EDE9"
+                    textColor="#000000"
                 />
                 <Button onPress={this.handleResubDate.bind(this)} title="Définir un rappel" />
             </ScrollViewWithHeader>
