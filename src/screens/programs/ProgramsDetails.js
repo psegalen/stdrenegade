@@ -30,7 +30,7 @@ export default class ProgramsDetails extends Component {
                         undefined
                     )}
                     <Text style={styles.textContainer}>{programDescription}</Text>
-                    {actualStreamers ? (
+                    {actualStreamers && actualStreamers.length > 0 ? (
                         <View>
                             <Text style={styles.title}>Streameurs</Text>
                             <View style={{ flexDirection: "row", justifyContent: "space-around", margin: 10 }}>
