@@ -65,6 +65,7 @@ class Header extends React.Component {
                 toValue: newAnimatedProgressValue,
                 duration: 200,
                 easing: Easing.out(Easing.quad),
+                useNativeDriver: false,
             }).start()
         }
         this.animatedProgressValue = newAnimatedProgressValue
