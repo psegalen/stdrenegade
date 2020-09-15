@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* stdrenegadeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* stdrenegadeTests.m */; };
+		11891CC153DA30F1B757EAB0 /* libPods-stdrenegade-stdrenegadeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC4A2ADB1D375A9F1B779D2 /* libPods-stdrenegade-stdrenegadeTests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -21,7 +22,6 @@
 		8F00D5F22343840400A34B72 /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F00D5F02343840400A34B72 /* Montserrat-Light.ttf */; };
 		8F00D5F32343840400A34B72 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8F00D5F12343840400A34B72 /* Montserrat-Medium.ttf */; };
 		8F0E8921239E9E9800557E54 /* splash_base.png in Resources */ = {isa = PBXBuildFile; fileRef = 8F0E8920239E9E9700557E54 /* splash_base.png */; };
-		DA83517B5FF10A40CDEA386B /* libPods-stdrenegadeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE6AE69763424F49B5E1A6CB /* libPods-stdrenegadeTests.a */; };
 		E8B7BEB439FDFDBB3DF2A9AC /* libPods-stdrenegade-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BEA7AC682CCA16181AFD71F /* libPods-stdrenegade-tvOSTests.a */; };
 		EA0A6EDB171CCE4094319AEC /* libPods-stdrenegade.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F3DB84AEE5823825200E899F /* libPods-stdrenegade.a */; };
 /* End PBXBuildFile section */
@@ -66,9 +66,12 @@
 		8F00D5FA234384A200A34B72 /* Renegade.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Renegade.entitlements; path = stdrenegade/Renegade.entitlements; sourceTree = "<group>"; };
 		8F0E8920239E9E9700557E54 /* splash_base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_base.png; sourceTree = "<group>"; };
 		98266706E41E2FD243DBE559 /* Pods-stdrenegade-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-stdrenegade-tvOS/Pods-stdrenegade-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		CE6AE69763424F49B5E1A6CB /* libPods-stdrenegadeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-stdrenegadeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A72C540D1DFBE85BF85B9B6D /* Pods-stdrenegade-stdrenegadeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade-stdrenegadeTests.debug.xcconfig"; path = "Target Support Files/Pods-stdrenegade-stdrenegadeTests/Pods-stdrenegade-stdrenegadeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BAC4A2ADB1D375A9F1B779D2 /* libPods-stdrenegade-stdrenegadeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-stdrenegade-stdrenegadeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF04552AEB2FD5CD09559F8C /* Pods-stdrenegadeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegadeTests.debug.xcconfig"; path = "Target Support Files/Pods-stdrenegadeTests/Pods-stdrenegadeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D30D5E5E2510CC8D00D98324 /* stdrenegade-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "stdrenegade-Bridging-Header.h"; sourceTree = "<group>"; };
 		D4FC595C2CB36B7450014E37 /* Pods-stdrenegade.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade.debug.xcconfig"; path = "Target Support Files/Pods-stdrenegade/Pods-stdrenegade.debug.xcconfig"; sourceTree = "<group>"; };
+		E2F31EB2ED86946FD9A29CFD /* Pods-stdrenegade-stdrenegadeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade-stdrenegadeTests.release.xcconfig"; path = "Target Support Files/Pods-stdrenegade-stdrenegadeTests/Pods-stdrenegade-stdrenegadeTests.release.xcconfig"; sourceTree = "<group>"; };
 		E9FFBF1A8719768C2F770021 /* Pods-stdrenegade-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-stdrenegade-tvOSTests/Pods-stdrenegade-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
@@ -83,7 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA83517B5FF10A40CDEA386B /* libPods-stdrenegadeTests.a in Frameworks */,
+				11891CC153DA30F1B757EAB0 /* libPods-stdrenegade-stdrenegadeTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +147,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				D30D5E5E2510CC8D00D98324 /* stdrenegade-Bridging-Header.h */,
 			);
 			name = stdrenegade;
 			sourceTree = "<group>";
@@ -156,7 +160,7 @@
 				F3DB84AEE5823825200E899F /* libPods-stdrenegade.a */,
 				FE3B006BAE22088F0287E8D9 /* libPods-stdrenegade-tvOS.a */,
 				6BEA7AC682CCA16181AFD71F /* libPods-stdrenegade-tvOSTests.a */,
-				CE6AE69763424F49B5E1A6CB /* libPods-stdrenegadeTests.a */,
+				BAC4A2ADB1D375A9F1B779D2 /* libPods-stdrenegade-stdrenegadeTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -215,6 +219,8 @@
 				E9FFBF1A8719768C2F770021 /* Pods-stdrenegade-tvOSTests.release.xcconfig */,
 				CF04552AEB2FD5CD09559F8C /* Pods-stdrenegadeTests.debug.xcconfig */,
 				F83BC3797D1E3FE0C1593931 /* Pods-stdrenegadeTests.release.xcconfig */,
+				A72C540D1DFBE85BF85B9B6D /* Pods-stdrenegade-stdrenegadeTests.debug.xcconfig */,
+				E2F31EB2ED86946FD9A29CFD /* Pods-stdrenegade-stdrenegadeTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -230,6 +236,7 @@
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
+				4823E3DCB30EF7CB5DBBE9BE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -307,8 +314,8 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
-				ORGANIZATIONNAME = Facebook;
+				LastUpgradeCheck = 1170;
+				ORGANIZATIONNAME = "Studio Renegade";
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -317,6 +324,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = QUDTCK988D;
+						LastSwiftMigration = 1170;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -331,10 +339,9 @@
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "stdrenegade" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -427,6 +434,7 @@
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
 				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -446,6 +454,7 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -465,6 +474,56 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
+		};
+		4823E3DCB30EF7CB5DBBE9BE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-stdrenegade-stdrenegadeTests/Pods-stdrenegade-stdrenegadeTests-resources.sh",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Feather.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Foundation.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Feather.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Brands.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Regular.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Solid.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Fontisto.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Foundation.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Ionicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialCommunityIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-stdrenegade-stdrenegadeTests/Pods-stdrenegade-stdrenegadeTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		6F1C239D370956BE565281D6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -503,7 +562,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-stdrenegadeTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-stdrenegade-stdrenegadeTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -659,7 +718,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF04552AEB2FD5CD09559F8C /* Pods-stdrenegadeTests.debug.xcconfig */;
+			baseConfigurationReference = A72C540D1DFBE85BF85B9B6D /* Pods-stdrenegade-stdrenegadeTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = QUDTCK988D;
@@ -683,7 +742,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F83BC3797D1E3FE0C1593931 /* Pods-stdrenegadeTests.release.xcconfig */;
+			baseConfigurationReference = E2F31EB2ED86946FD9A29CFD /* Pods-stdrenegade-stdrenegadeTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -706,7 +765,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D4FC595C2CB36B7450014E37 /* Pods-stdrenegade.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = stdrenegade/Renegade.entitlements;
 				CURRENT_PROJECT_VERSION = 7;
 				DEAD_CODE_STRIPPING = NO;
@@ -721,6 +782,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fr.studiorenegade.application;
 				PRODUCT_NAME = Renegade;
+				SWIFT_OBJC_BRIDGING_HEADER = "stdrenegade-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -730,7 +794,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 88CBF8FB26306B7827A81174 /* Pods-stdrenegade.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = stdrenegade/Renegade.entitlements;
 				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = QUDTCK988D;
@@ -744,6 +810,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fr.studiorenegade.application;
 				PRODUCT_NAME = Renegade;
+				SWIFT_OBJC_BRIDGING_HEADER = "stdrenegade-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -863,6 +931,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -916,6 +985,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
