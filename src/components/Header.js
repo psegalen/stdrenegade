@@ -4,7 +4,6 @@ import {
     ImageBackground,
     Animated,
     Easing,
-    Dimensions,
     StyleSheet,
     ViewPropTypes,
     TouchableOpacity,
@@ -12,8 +11,6 @@ import {
 import PropTypes from "prop-types"
 import IconMCI from "react-native-vector-icons/MaterialCommunityIcons"
 import Device from "../tools/Device"
-
-const windowSize = Dimensions.get("window")
 
 class Header extends React.Component {
     static propTypes = {

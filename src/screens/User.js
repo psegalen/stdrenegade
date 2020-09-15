@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { useEffect, useState } from "react"
 import { StyleSheet, Text, Button } from "react-native"
 import DatePicker from "react-native-date-picker"
 
@@ -21,42 +21,46 @@ const styles = StyleSheet.create({
     },
 })
 
-class User extends Component {
-    state = { date: new Date(), storedDate: undefined }
+const User = () => {
+    const [ date, setDate ] = useState(new Date())
+    const [ storedDate, setStoredDate ] = useState(undefined)
 
-    componentDidMount() {
-        Storage.getResubDate().then((date) => this.setState({ storedDate: date, date: date || this.state.date }))
+    useEffect(() => {
+        Storage.getResubDate().then((storageDate) => {
+            if (storageDate) {
+                setDate(storageDate)
+                setStoredDate(storageDate)
+            }
+        })
+    }, [])
+
+    const handleResubDate = () => {
+        Notification.renewNotification(date)
+        setStoredDate(date)
     }
 
-    handleResubDate() {
-        Notification.renewNotification(this.state.date)
-        this.setState({ storedDate: this.state.date })
-    }
-
-    render() {
-        return (
-            <ScrollViewWithHeader style={styles.root} padding={16}>
-                <Text style={styles.textContainer}>Fin de mon abonnement Prime à la chaîne :</Text>
-                <Text style={{ ...styles.textContainer, fontSize: 20 }}>
-                    {this.state.storedDate
-                        ? `Le ${this.state.storedDate.toLocaleDateString()} à ${this.state.storedDate.getHours()}h${zeroPad(
-                              this.state.storedDate.getMinutes()
-                          )}`
-                        : "A définir"}
-                </Text>
-                <DatePicker
-                    date={this.state.date}
-                    onDateChange={(date) => this.setState({ date })}
-                    locale="fr"
-                    style={{ marginTop: 10, alignSelf: "center" }}
-                    minuteInterval={5}
-                    fadeToColor="#F2EDE9"
-                    textColor="#000000"
-                />
-                <Button onPress={this.handleResubDate.bind(this)} title="Définir un rappel" />
-            </ScrollViewWithHeader>
-        )
-    }
+    return (
+        <ScrollViewWithHeader style={styles.root} padding={16}>
+            <Text style={styles.textContainer}>Fin de mon abonnement Prime à la chaîne :</Text>
+            <Text style={{ ...styles.textContainer, fontSize: 20 }}>
+                {storedDate
+                    ? `Le ${storedDate.toLocaleDateString()} à ${storedDate.getHours()}h${zeroPad(
+                          storedDate.getMinutes()
+                      )}`
+                    : "A définir"}
+            </Text>
+            <DatePicker
+                date={date}
+                onDateChange={(pickerDate) => setDate(pickerDate)}
+                locale="fr"
+                style={{ marginTop: 10, alignSelf: "center" }}
+                minuteInterval={5}
+                fadeToColor="#F2EDE9"
+                textColor="#000000"
+            />
+            <Button onPress={handleResubDate} title="Définir un rappel" />
+        </ScrollViewWithHeader>
+    )
 }
 
 export default User

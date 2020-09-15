@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React from "react"
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native"
 import { connect } from "react-redux"
 
@@ -6,36 +6,32 @@ import { ProgramRoutes } from "."
 
 import ScrollViewWithHeader from "../../components/ScrollViewWithHeader"
 
-class Programs extends Component {
-    render() {
-        return (
-            <ScrollViewWithHeader style={styles.root} navigation={this.props.navigation}>
-                <View style={styles.root}>
-                    {this.props.renegade.programs.map((program) => (
-                        <View key={program.id} style={styles.container}>
-                            <TouchableOpacity
-                                style={styles.emission}
-                                onPress={() =>
-                                    this.props.navigation.navigate(ProgramRoutes.programsDetails, {
-                                        programDetail: program,
-                                    })
-                                }
-                            >
-                                <Image style={styles.logoEmission} source={{ uri: program.logo }} />
-                                <View style={styles.containerDetail}>
-                                    <Text style={styles.programName}>{program.name}</Text>
-                                    {program.nextLive.length > 0 && (
-                                        <Text style={styles.programTime}>{program.nextLive}</Text>
-                                    )}
-                                </View>
-                            </TouchableOpacity>
+const Programs = (props) => (
+    <ScrollViewWithHeader style={styles.root} navigation={props.navigation}>
+        <View style={styles.root}>
+            {props.renegade.programs.map((program) => (
+                <View key={program.id} style={styles.container}>
+                    <TouchableOpacity
+                        style={styles.emission}
+                        onPress={() =>
+                            props.navigation.navigate(ProgramRoutes.programsDetails, {
+                                programDetail: program,
+                            })
+                        }
+                    >
+                        <Image style={styles.logoEmission} source={{ uri: program.logo }} />
+                        <View style={styles.containerDetail}>
+                            <Text style={styles.programName}>{program.name}</Text>
+                            {program.nextLive.length > 0 && (
+                                <Text style={styles.programTime}>{program.nextLive}</Text>
+                            )}
                         </View>
-                    ))}
+                    </TouchableOpacity>
                 </View>
-            </ScrollViewWithHeader>
-        )
-    }
-}
+            ))}
+        </View>
+    </ScrollViewWithHeader>
+)
 
 const styles = StyleSheet.create({
     root: {
