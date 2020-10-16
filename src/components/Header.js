@@ -46,7 +46,7 @@ class Header extends React.Component {
     }
 
     componentDidMount() {
-        Device.getStatusBarHeight().then((statusBarHeight) => this.setState({ statusBarHeight }))
+        this.setState({ statusBarHeight: Device.getStatusBarHeight() })
     }
 
     componentDidUpdate() {

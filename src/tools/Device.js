@@ -10,9 +10,9 @@ const Device = {
     },
     getStatusBarHeight() {
         if (Platform.OS === "ios") {
-            return DeviceInfo.hasNotch().then((result) => (result ? 40 : 20))
+            return DeviceInfo.hasNotch() ? 40 : 20
         }
-        return Promise.resolve(StatusBar.currentHeight)
+        return StatusBar.currentHeight
     },
     getBackArrowPosition(statusBarHeight) {
         return Platform.OS === "ios" ? statusBarHeight + 10 : 10
