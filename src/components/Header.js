@@ -89,7 +89,7 @@ class Header extends React.Component {
                         resizeMode="contain"
                     />
                 </SafeAreaView>
-                {this.props.shouldShowBackButton && (
+                {this.props.shouldShowBackButton && this.animatedProgressValue > 0.9 && (
                     <TouchableOpacity
                         onPress={() => (this.props.navigation ? this.props.navigation.goBack() : undefined)}
                         style={{

@@ -15,7 +15,7 @@ const Device = {
         return StatusBar.currentHeight
     },
     getBackArrowPosition(statusBarHeight) {
-        return Platform.OS === "ios" ? statusBarHeight + 10 : 10
+        return statusBarHeight + 10
     },
     getDeviceName() {
         return DeviceInfo.getDeviceName()

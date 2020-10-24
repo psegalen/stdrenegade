@@ -21,11 +21,11 @@ export default createStackNavigator(
             const { params = {} } = navigation.state
             const { scrollContentYOffset } = params
             return {
-                header: ({ index }) => (
+                header: ({scene}) => (
                     <Header
                         navigation={navigation}
                         scrollContentYOffset={scrollContentYOffset}
-                        shouldShowBackButton={index !== 0}
+                        shouldShowBackButton={scene.route.routeName !== HomeRoutes.homeHome}
                         params={params}
                     />
                 ),
