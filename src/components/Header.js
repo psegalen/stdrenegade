@@ -49,24 +49,24 @@ class Header extends React.Component {
         this.setState({ statusBarHeight: Device.getStatusBarHeight() })
     }
 
-    componentDidUpdate() {
-        const { scrollContentYOffset } = this.props
-        const newAnimatedProgressValue = Header.computeAnimatedProgressValue({ scrollContentYOffset })
-        if (
-            Math.abs(this.animatedProgressValue - newAnimatedProgressValue) <=
-            Header.deltaAnimationProgressThatDoesNotNeedTiming
-        ) {
-            this.animatedProgress.setValue(newAnimatedProgressValue)
-        } else {
-            Animated.timing(this.animatedProgress, {
-                toValue: newAnimatedProgressValue,
-                duration: 200,
-                easing: Easing.out(Easing.quad),
-                useNativeDriver: false,
-            }).start()
-        }
-        this.animatedProgressValue = newAnimatedProgressValue
-    }
+    // componentDidUpdate() {
+    //     const { scrollContentYOffset } = this.props
+    //     const newAnimatedProgressValue = Header.computeAnimatedProgressValue({ scrollContentYOffset })
+    //     if (
+    //         Math.abs(this.animatedProgressValue - newAnimatedProgressValue) <=
+    //         Header.deltaAnimationProgressThatDoesNotNeedTiming
+    //     ) {
+    //         this.animatedProgress.setValue(newAnimatedProgressValue)
+    //     } else {
+    //         Animated.timing(this.animatedProgress, {
+    //             toValue: newAnimatedProgressValue,
+    //             duration: 200,
+    //             easing: Easing.out(Easing.quad),
+    //             useNativeDriver: false,
+    //         }).start()
+    //     }
+    //     this.animatedProgressValue = newAnimatedProgressValue
+    // }
 
     render() {
         return (
