@@ -5,7 +5,10 @@ import { remainingTime } from "../tools/Date"
 import { storeRenegadeData, fetchRenegadeData } from "../data/renegade/actions"
 import IconMCI from "react-native-vector-icons/MaterialCommunityIcons"
 import Device from "../tools/Device"
-import { HomeRoutes } from "../screens/home"
+import { HomeRoutes } from "../screens/routes"
+
+
+
 
 const TouchOrNot = (props) =>
     props.touchable ? (

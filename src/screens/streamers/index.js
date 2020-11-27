@@ -1,18 +1,17 @@
 import React from "react"
 import { createStackNavigator } from "react-navigation-stack"
 
-import Programs from "./Programs"
-import ProgramsDetails from "./ProgramsDetails"
-import StreamersDetails from "../streamers/StreamersDetails"
-import {ProgramRoutes ,StreamerRoutes} from "../routes"
+import Streamers from "./Streamers"
+import StreamersDetails from "./StreamersDetails"
+import ProgramsDetails from "../programs/ProgramsDetails"
+import {ProgramRoutes, StreamerRoutes} from "../routes"
 import Header from "../../components/Header"
-
 
 export default createStackNavigator(
     {
-        [ProgramRoutes.programsHome]: Programs,
-        [ProgramRoutes.programsDetails]: ProgramsDetails,
+        [StreamerRoutes.streamersHome]: Streamers,
         [StreamerRoutes.streamersDetails]: StreamersDetails,
+        [ProgramRoutes.programsDetails] : ProgramsDetails, 
     },
     {
         defaultNavigationOptions: ({ navigation }) => {
@@ -23,7 +22,7 @@ export default createStackNavigator(
                     <Header
                         navigation={navigation}
                         scrollContentYOffset={scrollContentYOffset}
-                        shouldShowBackButton={scene.route.routeName !== ProgramRoutes.programsHome}
+                        shouldShowBackButton={scene.route.routeName !== StreamerRoutes.streamersHome}
                         params={params}
                     />
                 ),

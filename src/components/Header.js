@@ -99,7 +99,7 @@ class Header extends React.Component {
                             left: 20,
                         }}
                     >
-                        <IconMCI name="arrow-left" size={36} color="#FFF" />
+                        { Platform.OS === "ios" && <IconMCI name="arrow-left" size={36} color="#FFF" />}
                     </TouchableOpacity>
                 )}
             </ImageBackground>

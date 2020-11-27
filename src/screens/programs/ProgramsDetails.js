@@ -1,49 +1,55 @@
 import React from "react"
 import { StyleSheet, Text, View, Image, TouchableOpacity, Linking } from "react-native"
 import IconII from "react-native-vector-icons/Ionicons"
+import {ProgramRoutes, StreamerRoutes} from "../routes"
+import { connect } from "react-redux"
 
 import ScrollViewWithHeader from "../../components/ScrollViewWithHeader"
 
 const ProgramsDetails = (props) => {
     const { params } = props.navigation.state
-    const programDescription = params.programDetail.description
-    const logoEmission = params.programDetail.logo
-    const { streamers } = params
-    const actualStreamers = params.programDetail.anim || streamers
+    const programDetail =  props.renegade.programs.find(program => program.id === params.programId) || params.programDetail
     return (
         <ScrollViewWithHeader style={styles.root} navigation={props.navigation}>
             <View style={styles.container}>
                 <View style={{ justifyContent: "center", alignItems: "center", marginBottom: 10 }}>
-                    <Image source={{ uri: logoEmission }} style={styles.logo} />
+                    <Image source={{ uri: programDetail.logo }} style={styles.logo} />
                 </View>
-                <Text style={styles.title}>{params.programDetail.name}</Text>
-                {params.programDetail.nextLive ? (
+                <Text style={styles.title}>{programDetail.name}</Text>
+                {programDetail.nextLive ? (
                     <Text style={[styles.textContainer, { alignSelf: "center" }]}>
-                        Prochain live : {params.programDetail.nextLive}
+                        Prochain live : {programDetail.nextLive}
                     </Text>
                 ) : (
                     undefined
                 )}
-                <Text style={styles.textContainer}>{programDescription}</Text>
-                {actualStreamers && actualStreamers.length > 0 ? (
+                <Text style={styles.textContainer}>{programDetail.description}</Text>
+                {programDetail.anim && programDetail.anim.length > 0 ? (
                     <View>
                         <Text style={styles.title}>Streameurs</Text>
                         <View style={{ flexDirection: "row", justifyContent: "space-around", margin: 10 }}>
-                            {actualStreamers.map((streamer) => (
-                                <View key={streamer.id}>
+                            {programDetail.anim.map((streamer) => (
+                                <TouchableOpacity 
+                                key={streamer.id}
+                                onPress={() =>
+                                props.navigation.navigate(StreamerRoutes.streamersDetails, {
+                                streamerId : streamer.id
+                                    })
+                                }
+                                >
                                     <Image source={{ uri: streamer.logo }} style={styles.streamerLogo} />
-                                </View>
+                                </TouchableOpacity>
                             ))}
                         </View>
                     </View>
                 ) : (
                     undefined
                 )}
-                {params.programDetail.videos && params.programDetail.videos.length > 0 ? (
+                {programDetail.videos && programDetail.videos.length > 0 ? (
                     <View>
                         <Text style={styles.title}>Dernières émissions</Text>
                         <View style={{ marginHorizontal: 10, alignContent: "center" }}>
-                            {params.programDetail.videos.map((video) => (
+                            {programDetail.videos.map((video) => (
                                 <TouchableOpacity
                                     key={video.id}
                                     style={{ marginVertical: 10 }}
@@ -58,9 +64,9 @@ const ProgramsDetails = (props) => {
                 ) : (
                     undefined
                 )}
-                {params.programDetail.url_youtube ? (
+                {programDetail.url_youtube ? (
                     <TouchableOpacity
-                        onPress={() => Linking.openURL(params.programDetail.url_youtube)}
+                        onPress={() => Linking.openURL(programDetail.url_youtube)}
                         style={{ flexDirection: "row", marginTop: 8, alignItems: "center" }}
                     >
                         <View
@@ -82,9 +88,9 @@ const ProgramsDetails = (props) => {
                 ) : (
                     undefined
                 )}
-                {params.programDetail.url_rss ? (
+                {programDetail.url_rss ? (
                     <TouchableOpacity
-                        onPress={() => Linking.openURL(params.programDetail.url_rss)}
+                        onPress={() => Linking.openURL(programDetail.url_rss)}
                         style={{ flexDirection: "row", marginTop: 8, alignItems: "center" }}
                     >
                         <View
@@ -156,11 +162,10 @@ const styles = StyleSheet.create({
         fontFamily: "Montserrat-Light",
         color: "#000",
     },
-    streameur: {
-        height: 70,
-        width: 70,
-        borderRadius: 35,
-    },
 })
 
-export default ProgramsDetails;
+const mapStateToProps = ({ renegade }) => ({
+    renegade,
+})
+export default connect(mapStateToProps)(ProgramsDetails)
+

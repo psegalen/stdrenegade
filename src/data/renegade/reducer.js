@@ -1,6 +1,7 @@
 import { renegadeActions } from "./actions"
 import { remainingTime } from "../../tools/Date"
 
+
 const initialState = {
     events: [],
     programs: [],
@@ -34,12 +35,31 @@ const renegadeReducer = (state = initialState, action) => {
                     nextLive: nextLive ? remainingTime(nextLive.time_start * 1000) : "",
                 }
             })
+
+            const streamers = action.data.streamers.map((streamer) => {
+                streamer.programDetails = []
+                const nextLive = []
+                streamer.programs.map((programId) => {
+                    streamer.programDetails.push(action.data.programs.find((program) => program.id === programId))
+                    const checkProgramInFilteredEvents = filteredEvents.find(event => event.program === programId)
+                    if (checkProgramInFilteredEvents){
+                        nextLive.push(checkProgramInFilteredEvents)
+                        nextLive.sort((a, b) => a.time_start - b.time_start)
+                    }
+                })
+
+                return {
+                    ...streamer,
+                    nextLive: nextLive[0] ? remainingTime(nextLive[0].time_start * 1000) : "",
+
+                }
+            
+            })
             return {
                 ...state,
                 events: action.data.events,
                 programs,
-                streamers: action.data.streamers,
-                streams,
+                streamers,
                 isLoading: false,
             }
         case renegadeActions.FETCH_RENEGADE_DATA:
