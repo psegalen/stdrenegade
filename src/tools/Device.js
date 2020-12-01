@@ -15,7 +15,7 @@ const Device = {
         return StatusBar.currentHeight
     },
     getBackArrowPosition(statusBarHeight) {
-        return statusBarHeight + 10
+        return  statusBarHeight + 10 
     },
     getDeviceName() {
         return DeviceInfo.getDeviceName()

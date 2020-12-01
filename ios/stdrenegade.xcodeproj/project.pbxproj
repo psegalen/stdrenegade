@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* stdrenegadeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* stdrenegadeTests.m */; };
+		0F4B4181257167DA00CF408B /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4B4180257167DA00CF408B /* libRNDeviceInfo.a */; };
+		0F4B4183257167F700CF408B /* libswiftWebKit.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F4B4182257167EC00CF408B /* libswiftWebKit.tbd */; };
+		0F4B419725716C0500CF408B /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F4B419625716C0500CF408B /* File.swift */; };
 		11891CC153DA30F1B757EAB0 /* libPods-stdrenegade-stdrenegadeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC4A2ADB1D375A9F1B779D2 /* libPods-stdrenegade-stdrenegadeTests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
@@ -48,6 +51,10 @@
 		00E356EE1AD99517003FC87E /* stdrenegadeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = stdrenegadeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* stdrenegadeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = stdrenegadeTests.m; sourceTree = "<group>"; };
+		07265C305432A72691478760 /* Pods-stdrenegade-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade-tvOS.release.xcconfig"; path = "Target Support Files/Pods-stdrenegade-tvOS/Pods-stdrenegade-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		0F4B4180257167DA00CF408B /* libRNDeviceInfo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNDeviceInfo.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F4B4182257167EC00CF408B /* libswiftWebKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftWebKit.tbd; path = usr/lib/swift/libswiftWebKit.tbd; sourceTree = SDKROOT; };
+		0F4B419625716C0500CF408B /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* Renegade.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Renegade.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = stdrenegade/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = stdrenegade/AppDelegate.m; sourceTree = "<group>"; };
@@ -55,29 +62,26 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = stdrenegade/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = stdrenegade/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = stdrenegade/main.m; sourceTree = "<group>"; };
+		2B75E880657A75EFD90A6B6D /* Pods-stdrenegade-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-stdrenegade-tvOS/Pods-stdrenegade-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* stdrenegade-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "stdrenegade-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* stdrenegade-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "stdrenegade-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B2C571B6E2DFF2DC7C49B52 /* Pods-stdrenegade-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-stdrenegade-tvOSTests/Pods-stdrenegade-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3D5BBD865903203CD4B88EFB /* Pods-stdrenegade-stdrenegadeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade-stdrenegadeTests.debug.xcconfig"; path = "Target Support Files/Pods-stdrenegade-stdrenegadeTests/Pods-stdrenegade-stdrenegadeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		413278EC27C03B19EDF23A72 /* Pods-stdrenegade.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade.debug.xcconfig"; path = "Target Support Files/Pods-stdrenegade/Pods-stdrenegade.debug.xcconfig"; sourceTree = "<group>"; };
+		5EE942BC440FBE33D8099570 /* Pods-stdrenegade-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-stdrenegade-tvOSTests/Pods-stdrenegade-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		6BEA7AC682CCA16181AFD71F /* libPods-stdrenegade-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-stdrenegade-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		88CBF8FB26306B7827A81174 /* Pods-stdrenegade.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade.release.xcconfig"; path = "Target Support Files/Pods-stdrenegade/Pods-stdrenegade.release.xcconfig"; sourceTree = "<group>"; };
+		7268326ADE40B01D518C5306 /* Pods-stdrenegade.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade.release.xcconfig"; path = "Target Support Files/Pods-stdrenegade/Pods-stdrenegade.release.xcconfig"; sourceTree = "<group>"; };
+		765B6100DEA6CCF502FA0A1F /* Pods-stdrenegade-stdrenegadeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade-stdrenegadeTests.release.xcconfig"; path = "Target Support Files/Pods-stdrenegade-stdrenegadeTests/Pods-stdrenegade-stdrenegadeTests.release.xcconfig"; sourceTree = "<group>"; };
 		8F00D5EA23437AE500A34B72 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8F00D5F02343840400A34B72 /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Light.ttf"; path = "../../assets/fonts/Montserrat-Light.ttf"; sourceTree = "<group>"; };
 		8F00D5F12343840400A34B72 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Montserrat-Medium.ttf"; path = "../../assets/fonts/Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		8F00D5FA234384A200A34B72 /* Renegade.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = Renegade.entitlements; path = stdrenegade/Renegade.entitlements; sourceTree = "<group>"; };
 		8F0E8920239E9E9700557E54 /* splash_base.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash_base.png; sourceTree = "<group>"; };
-		98266706E41E2FD243DBE559 /* Pods-stdrenegade-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-stdrenegade-tvOS/Pods-stdrenegade-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
-		A72C540D1DFBE85BF85B9B6D /* Pods-stdrenegade-stdrenegadeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade-stdrenegadeTests.debug.xcconfig"; path = "Target Support Files/Pods-stdrenegade-stdrenegadeTests/Pods-stdrenegade-stdrenegadeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AF603C009A8C57C78384183B /* Pods-stdrenegade-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-stdrenegade-tvOSTests/Pods-stdrenegade-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		BAC4A2ADB1D375A9F1B779D2 /* libPods-stdrenegade-stdrenegadeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-stdrenegade-stdrenegadeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF04552AEB2FD5CD09559F8C /* Pods-stdrenegadeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegadeTests.debug.xcconfig"; path = "Target Support Files/Pods-stdrenegadeTests/Pods-stdrenegadeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D30D5E5E2510CC8D00D98324 /* stdrenegade-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "stdrenegade-Bridging-Header.h"; sourceTree = "<group>"; };
-		D4FC595C2CB36B7450014E37 /* Pods-stdrenegade.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade.debug.xcconfig"; path = "Target Support Files/Pods-stdrenegade/Pods-stdrenegade.debug.xcconfig"; sourceTree = "<group>"; };
-		E2F31EB2ED86946FD9A29CFD /* Pods-stdrenegade-stdrenegadeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade-stdrenegadeTests.release.xcconfig"; path = "Target Support Files/Pods-stdrenegade-stdrenegadeTests/Pods-stdrenegade-stdrenegadeTests.release.xcconfig"; sourceTree = "<group>"; };
-		E9FFBF1A8719768C2F770021 /* Pods-stdrenegade-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-stdrenegade-tvOSTests/Pods-stdrenegade-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F3DB84AEE5823825200E899F /* libPods-stdrenegade.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-stdrenegade.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F83BC3797D1E3FE0C1593931 /* Pods-stdrenegadeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegadeTests.release.xcconfig"; path = "Target Support Files/Pods-stdrenegadeTests/Pods-stdrenegadeTests.release.xcconfig"; sourceTree = "<group>"; };
-		FBA0BAB84612A60705A1A61D /* Pods-stdrenegade-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-stdrenegade-tvOS.release.xcconfig"; path = "Target Support Files/Pods-stdrenegade-tvOS/Pods-stdrenegade-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		FE3B006BAE22088F0287E8D9 /* libPods-stdrenegade-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-stdrenegade-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -95,6 +99,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA0A6EDB171CCE4094319AEC /* libPods-stdrenegade.a in Frameworks */,
+				0F4B4183257167F700CF408B /* libswiftWebKit.tbd in Frameworks */,
+				0F4B4181257167DA00CF408B /* libRNDeviceInfo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +140,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		040B0098CE5D914B50D001B6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				413278EC27C03B19EDF23A72 /* Pods-stdrenegade.debug.xcconfig */,
+				7268326ADE40B01D518C5306 /* Pods-stdrenegade.release.xcconfig */,
+				3D5BBD865903203CD4B88EFB /* Pods-stdrenegade-stdrenegadeTests.debug.xcconfig */,
+				765B6100DEA6CCF502FA0A1F /* Pods-stdrenegade-stdrenegadeTests.release.xcconfig */,
+				2B75E880657A75EFD90A6B6D /* Pods-stdrenegade-tvOS.debug.xcconfig */,
+				07265C305432A72691478760 /* Pods-stdrenegade-tvOS.release.xcconfig */,
+				5EE942BC440FBE33D8099570 /* Pods-stdrenegade-tvOSTests.debug.xcconfig */,
+				AF603C009A8C57C78384183B /* Pods-stdrenegade-tvOSTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* stdrenegade */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +169,7 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				D30D5E5E2510CC8D00D98324 /* stdrenegade-Bridging-Header.h */,
+				0F4B419625716C0500CF408B /* File.swift */,
 			);
 			name = stdrenegade;
 			sourceTree = "<group>";
@@ -155,6 +177,8 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0F4B4182257167EC00CF408B /* libswiftWebKit.tbd */,
+				0F4B4180257167DA00CF408B /* libRNDeviceInfo.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				F3DB84AEE5823825200E899F /* libPods-stdrenegade.a */,
@@ -181,7 +205,7 @@
 				00E356EF1AD99517003FC87E /* stdrenegadeTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				C933AC66BB9A54AFDA09A4A1 /* Pods */,
+				040B0098CE5D914B50D001B6 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -206,23 +230,6 @@
 				8F00D5F12343840400A34B72 /* Montserrat-Medium.ttf */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		C933AC66BB9A54AFDA09A4A1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D4FC595C2CB36B7450014E37 /* Pods-stdrenegade.debug.xcconfig */,
-				88CBF8FB26306B7827A81174 /* Pods-stdrenegade.release.xcconfig */,
-				98266706E41E2FD243DBE559 /* Pods-stdrenegade-tvOS.debug.xcconfig */,
-				FBA0BAB84612A60705A1A61D /* Pods-stdrenegade-tvOS.release.xcconfig */,
-				3B2C571B6E2DFF2DC7C49B52 /* Pods-stdrenegade-tvOSTests.debug.xcconfig */,
-				E9FFBF1A8719768C2F770021 /* Pods-stdrenegade-tvOSTests.release.xcconfig */,
-				CF04552AEB2FD5CD09559F8C /* Pods-stdrenegadeTests.debug.xcconfig */,
-				F83BC3797D1E3FE0C1593931 /* Pods-stdrenegadeTests.release.xcconfig */,
-				A72C540D1DFBE85BF85B9B6D /* Pods-stdrenegade-stdrenegadeTests.debug.xcconfig */,
-				E2F31EB2ED86946FD9A29CFD /* Pods-stdrenegade-stdrenegadeTests.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -667,6 +674,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				0F4B419725716C0500CF408B /* File.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -718,8 +726,9 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A72C540D1DFBE85BF85B9B6D /* Pods-stdrenegade-stdrenegadeTests.debug.xcconfig */;
+			baseConfigurationReference = 3D5BBD865903203CD4B88EFB /* Pods-stdrenegade-stdrenegadeTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = QUDTCK988D;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -742,8 +751,9 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E2F31EB2ED86946FD9A29CFD /* Pods-stdrenegade-stdrenegadeTests.release.xcconfig */;
+			baseConfigurationReference = 765B6100DEA6CCF502FA0A1F /* Pods-stdrenegade-stdrenegadeTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				DEVELOPMENT_TEAM = QUDTCK988D;
@@ -763,7 +773,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D4FC595C2CB36B7450014E37 /* Pods-stdrenegade.debug.xcconfig */;
+			baseConfigurationReference = 413278EC27C03B19EDF23A72 /* Pods-stdrenegade.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -772,8 +782,13 @@
 				CURRENT_PROJECT_VERSION = 7;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = QUDTCK988D;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = stdrenegade/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
+				);
 				MARKETING_VERSION = 1.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -792,7 +807,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 88CBF8FB26306B7827A81174 /* Pods-stdrenegade.release.xcconfig */;
+			baseConfigurationReference = 7268326ADE40B01D518C5306 /* Pods-stdrenegade.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -800,8 +815,13 @@
 				CODE_SIGN_ENTITLEMENTS = stdrenegade/Renegade.entitlements;
 				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = QUDTCK988D;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				INFOPLIST_FILE = stdrenegade/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
+				);
 				MARKETING_VERSION = 1.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -819,7 +839,7 @@
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 98266706E41E2FD243DBE559 /* Pods-stdrenegade-tvOS.debug.xcconfig */;
+			baseConfigurationReference = 2B75E880657A75EFD90A6B6D /* Pods-stdrenegade-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -847,7 +867,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FBA0BAB84612A60705A1A61D /* Pods-stdrenegade-tvOS.release.xcconfig */;
+			baseConfigurationReference = 07265C305432A72691478760 /* Pods-stdrenegade-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -875,7 +895,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B2C571B6E2DFF2DC7C49B52 /* Pods-stdrenegade-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 5EE942BC440FBE33D8099570 /* Pods-stdrenegade-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -902,7 +922,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E9FFBF1A8719768C2F770021 /* Pods-stdrenegade-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = AF603C009A8C57C78384183B /* Pods-stdrenegade-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
