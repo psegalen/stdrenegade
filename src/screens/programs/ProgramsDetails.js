@@ -1,7 +1,7 @@
 import React from "react"
 import { StyleSheet, Text, View, Image, TouchableOpacity, Linking } from "react-native"
 import IconII from "react-native-vector-icons/Ionicons"
-import {ProgramRoutes, StreamerRoutes} from "../routes"
+import {StreamerRoutes} from "../routes"
 import { connect } from "react-redux"
 
 import ScrollViewWithHeader from "../../components/ScrollViewWithHeader"
