@@ -5,7 +5,8 @@ import { remainingTime } from "../tools/Date"
 import { storeRenegadeData, fetchRenegadeData } from "../data/renegade/actions"
 import IconMCI from "react-native-vector-icons/MaterialCommunityIcons"
 import Device from "../tools/Device"
-import { HomeRoutes } from "../screens/routes"
+import { HomeRoutes, StreamerRoutes } from "../screens/routes"
+import { log } from "react-native-reanimated"
 
 
 
@@ -110,12 +111,19 @@ class Agenda extends Component {
             <TouchOrNot
                 key={event.id}
                 style={styles.programRoot}
-                touchable={program !== undefined || stream !== undefined}
-                onPress={() =>
-                    this.props.navigation.navigate(HomeRoutes.homeDetails, {
-                        programDetail: program || stream,
-                        streamers: event.streamers ? this.getStreamers(event.streamers) : [],
-                    })
+                touchable={program !== undefined || stream !== undefined || streamer !==undefined}
+                onPress={() => 
+                    (streamer && !program)? (
+                        this.props.navigation.navigate(StreamerRoutes.streamersDetails,{
+                            streamerDetail:streamer,
+                            })
+                    ):(
+                        this.props.navigation.navigate(HomeRoutes.homeDetails, {
+                            programDetail: program || stream,
+                            streamers: event.streamers ? this.getStreamers(event.streamers) : [],
+                        })
+                    )
+                    
                 }
             >
                 <Image style={styles.programLogo} source={srLogoUri ? { uri: srLogoUri } : twitchIcon} />
