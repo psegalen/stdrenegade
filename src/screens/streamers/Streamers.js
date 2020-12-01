@@ -57,33 +57,17 @@ const styles = StyleSheet.create({
         borderRadius: 80,
         marginHorizontal: 20,
         marginVertical: 10,
+        flex:1
     },
     streamer: {
         flex: 1,
         flexDirection: "row",
-        height: 80,
+        alignItems: "center",
     },
     photoStreamer: {
         borderRadius: 40,
         height: 80,
         width: 80,
-    },
-    StreamerName: {
-        fontFamily: "Montserrat-Medium",
-        color: "#000",
-        fontSize: 18,
-    },
-    containerProgramsLogo: {
-        flex: 1,
-        flexDirection: "row",
-        alignItems: "center",
-        flexWrap: "wrap",
-    },
-    programsLogo: {
-        borderRadius: 80,
-        width: 40,
-        height: 40,
-        margin: 5,
     },
     containerDetail: {
         flexDirection: "column",
@@ -91,6 +75,26 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingLeft: 10,
     },
+
+    StreamerName: {
+        fontFamily: "Montserrat-Medium",
+        color: "#000",
+        fontSize: 18,
+    },
+    containerProgramsLogo: {
+        flex: 1,
+        alignItems: "center",
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        flexWrap: "wrap",
+    },
+    programsLogo: {
+        borderRadius: 80,
+        width: 40,
+        height: 40,
+        marginRight: 5,
+    },
+
 })
 const mapStateToProps = ({ renegade }) => ({
     renegade,

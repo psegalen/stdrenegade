@@ -206,7 +206,14 @@ const styles = StyleSheet.create({
     root: {
         flex: 1,
         backgroundColor: "#F2EDE9",
-        paddingBottom:10
+    },
+    streamerPhoto:{
+        marginTop:20,
+        marginBottom:5,
+        borderRadius: 40,
+        width: 80,
+        height: 80, 
+        alignSelf: "center"
     },
     title: {
         fontFamily: "Montserrat-Medium",
@@ -216,22 +223,18 @@ const styles = StyleSheet.create({
         marginTop: 20,
         marginBottom:10,
     },
-    streamerPhoto:{
-        margin:20,
-        borderRadius: 40,
-        width: 80,
-        height: 80, 
-        alignSelf: "center"
-    },
     textContainer: {
+        flex: 1,
         fontSize: 16,
-        marginTop: 10,
+        marginVertical: 5,
         paddingHorizontal:10,
         fontFamily: "Montserrat-Light",
         color: "#000",
         textAlign: "center"
     },
     programList:{
+        flex: 1,
+        padding:10,
         flexDirection: "row",
         justifyContent: "center",
     },
@@ -239,7 +242,7 @@ const styles = StyleSheet.create({
         borderRadius: 30,
         height: 60,
         width: 60,
-        margin:10,
+        margin:5,
     },
     containerNetworkButton:{
         justifyContent: "center",
